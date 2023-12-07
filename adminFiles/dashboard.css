@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    background-color: #C8CACE;  
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.dashboard {
+    background-color: #ffffff;
+    margin-left: 30px;
+    margin-top: 20px;
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2.94px 1.06px rgba(4,26,55,0.16);
+}
+
+h5 {
+    color: #000000;
+}
+
+span {
+    color: #000000;
+}
+
+.order-card {
+    color: #000000;
+}
+
+.bg-c-blue {
+    background: linear-gradient(105deg,#ffffff,#e0e0e0);
+}
+
+.bg-c-green {
+    background: linear-gradient(105deg,#ffffff,#e0e0e0);
+}
+
+.bg-c-yellow {
+    background: linear-gradient(105deg,#ffffff,#e0e0e0);
+}
+
+.bg-c-pink {
+    background: linear-gradient(105deg,#ffffff,#e0e0e0);
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 1px 2.94px 1.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card .card-block {
+    padding: 10px;
+}
+
+.card-block span {
+    margin-left: 20px;
+}
+
+.order-card i {
+    font-size: 40px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.blue, .yellow, .green, .pink {
+    width: 300px;
+    position: relative;
+    float: left;
+    margin-right: 20px;
+    margin-left: 85px;
+    align-items: center;
+}

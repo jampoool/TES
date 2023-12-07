@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    display: flex;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 75px;
+    height: 100vh;
+    float: left;
+    background-color: #272829;
+    padding: 0 1.3rem;
+    color: #ffffff;
+    overflow: hidden;
+    transition: all 0.5s linear;
+}
+
+.sidebar:hover {
+    width: 400px;
+    transition: 0.5s;
+}
+
+.logo {
+    padding: 10px;
+    margin-top: 10%;
+}
+
+.menu {
+    height: 90%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover,
+.active {
+    background: #952323;
+}
+
+.menu a {
+    color: #ffffff;
+    font-size: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu a span {
+    overflow: hidden;
+}
+
+.menu a i {
+    font-size: 1.2rem;
+}
+
+h4 {
+    position: relative;
+    float: left;
+    margin-left: 30px;
+    margin-top: 15px;
+    color: #000000;
+}
+
+.dropbtn {
+    background-color: #3876BF;
+    color: white;
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+    margin-top: 5px;
+    border-radius: 10px;
+    position: sticky;
+}
+
+.dropdown {
+    position: relative;
+    float: right;
+    margin-right: 30px;
+    margin-top: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #ffffff;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.output {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    float: left;
+    background-color: #f1f2fb;
+}
+
+iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #f1f2fb;
+}
+
+.header-output {
+    width: 1500px;
+    height: 589px;
+}
