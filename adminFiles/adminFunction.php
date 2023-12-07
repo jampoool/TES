@@ -828,7 +828,28 @@ function insertClassRecord()
             mysqli_query($con, $sqldelete);
             header('Location: http://localhost/TES/adminFiles/class.php');
         }
+        if(isset($_POST['saveDetails'])){
+            if (!isset($_SESSION['adminID'])) {
 
+                header('Location: http://localhost/TES/adminFiles/class.php');
+                exit();
+            }
+            $adminId = $_SESSION['adminID'];
+    
+            $classEditID = $_POST['classEditID'];
+            $classEditCode = $_POST['classCodeEdit'];
+            $classEditName = $_POST['classNameEdit'];
+            $teacherEditID = $_POST['teacherEditID'];
+            $subjectEditID = $_POST['subjectEditID'];
+
+            $ID = $_GET['edit'];
+
+            $sqledit = "UPDATE `tblclass` SET `classID` = '$classEditID', `adminID` = '$adminId', `classCode` = '$classEditCode', 
+            `className` = '$classEditName', `subID` = '$guidanceEditEmail', 
+            `teachID` = '$passwordEditPass', `date_updated` =  current_timestamp() WHERE `tblclass`.`classID` = $ID ";
+             mysqli_query($con, $sqledit);
+             header('Location: http://localhost/TES/adminFiles/class.php');
+        }
 }
 ?>
 
