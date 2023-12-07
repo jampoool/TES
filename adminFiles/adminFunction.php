@@ -828,6 +828,7 @@ function insertClassRecord()
             mysqli_query($con, $sqldelete);
             header('Location: http://localhost/TES/adminFiles/class.php');
         }
+
         if(isset($_POST['saveDetails'])){
             if (!isset($_SESSION['adminID'])) {
 
@@ -845,8 +846,8 @@ function insertClassRecord()
             $ID = $_GET['edit'];
 
             $sqledit = "UPDATE `tblclass` SET `classID` = '$classEditID', `adminID` = '$adminId', `classCode` = '$classEditCode', 
-            `className` = '$classEditName', `subID` = '$guidanceEditEmail', 
-            `teachID` = '$passwordEditPass', `date_updated` =  current_timestamp() WHERE `tblclass`.`classID` = $ID ";
+            `className` = '$classEditName', `subID` = '$subjectEditID', 
+            `teachID` = '$teacherEditID', `date_updated` =  current_timestamp() WHERE `tblclass`.`classID` = $ID ";
              mysqli_query($con, $sqledit);
              header('Location: http://localhost/TES/adminFiles/class.php');
         }
