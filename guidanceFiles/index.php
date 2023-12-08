@@ -1,3 +1,35 @@
+<?php 
+include "../connect.php";
+session_start();
+
+if (isset($_POST['loginBtn'])) {
+    $username = $_POST['g_emailAdd'];
+    $password = $_POST['g_password'];
+
+    $sql = "SELECT guidance_ID FROM tblguidancestaff WHERE G_emailAdd = ? AND password = ?";
+    
+    $stmt = mysqli_prepare($con, $sql);
+
+    mysqli_stmt_bind_param($stmt, 'ss', $username, $password);
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    $rows = mysqli_fetch_assoc($result);
+
+    if ($rows) {
+        // Admin authentication successful
+        $_SESSION['guidance_ID'] = $rows['guidance_ID'];
+        header("Location: http://localhost/TES/guidanceFiles/guidancepanel.php");
+        exit();
+    } else {
+        // Admin authentication failed
+        echo "Invalid username or password";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

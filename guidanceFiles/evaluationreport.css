@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    background: #C8CACE;
+}
+
+.evaluation-report {
+    background-color: #ffffff;
+    margin-left: 35px;
+    margin-top: 20px;
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+}
+
+.select-teacher {
+    background-color: #ffffff;
+    margin-left: 35px;
+    margin-top: 20px;
+    width: 95%;
+    height: 60px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+}
+
+.select-teacher select {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.left {
+    background-color: #ffffff;
+    margin-left: 35px;
+    margin-top: 40px;
+    width: 20%;
+    height: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+}
+
+.left label {
+    margin-top: 20px;
+}

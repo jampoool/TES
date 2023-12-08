@@ -1,3 +1,9 @@
+<?php 
+include "../connect.php";
+include "guidanceFunction.php";
+session_start();
+guidanceCategoryFunction();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +29,10 @@
         <div class="form">
             <h2>Question Category</h2>
             <div class="form-element">
-                <input type="text" placeholder="Category Name" id="categoryname" name="">
+                <input type="text" placeholder="Category Name" id="categoryname" name="categoryName">
             </div>
             <div class="form-element">
-                <textarea name="" id="description" placeholder="Description"></textarea>
+                <textarea name="description" id="description" placeholder="Description"></textarea>
             </div>
             <div class="form-element">
                 <button id="add-btn" name="addbtn">Add</button>
@@ -41,8 +47,11 @@
                     <tr>
                         <th>Category Name</th>
                         <th>Description</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php   get_category_Records(); ?>
             </table>
         </div>
     <script type="text/javascript" src="../scriptfiles/questionCategory.js"></script>
