@@ -60,88 +60,16 @@
                       <input type="radio" name="optradio1">
                     </td>
                     <td>
-                      <input type="radio" name="optradio2">
+                      <input type="radio" name="optradio1">
                     </td>
-                    <td>
-                      <input type="radio" name="optradio3">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio4">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio5">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Question 2</td>
                     <td>
                       <input type="radio" name="optradio1">
                     </td>
                     <td>
-                      <input type="radio" name="optradio2">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio3">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio4">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio5">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Question 3</td>
-                    <td>
                       <input type="radio" name="optradio1">
                     </td>
                     <td>
-                      <input type="radio" name="optradio2">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio3">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio4">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio5">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Question 4</td>
-                    <td>
                       <input type="radio" name="optradio1">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio2">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio3">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio4">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio5">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Question 5</td>
-                    <td>
-                      <input type="radio" name="optradio1">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio2">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio3">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio4">
-                    </td>
-                    <td>
-                      <input type="radio" name="optradio5">
                     </td>
                 </tr>
         </table>

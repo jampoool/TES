@@ -1,5 +1,5 @@
 <?php
-    $server = "127.0.0.1:3307";
+    $server = "localhost";
     $username = "root";
     $password = "";
     $database = "teacheval_db";

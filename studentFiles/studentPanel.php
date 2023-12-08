@@ -10,9 +10,9 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" integrity="sha512-PvB3Q4vTvWD/9aiiELYI3uebup/4mtou3Mc/uGudC/Zl+C9BdKUkAI+5jORfA+fvLK4DpzC5VyEN7P2kK43hjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="text/javascript" src="../dist/js/jquery.js"></script>
-    <script type="text/javascript" src="../scriptfiles/teacherPanel.js"></script>
-    <link href= "teacherPanel.css" rel= "stylesheet">
-    <title>TES - Teacher Panel</title>
+    <script type="text/javascript" src="../scriptfiles/studentPanel.js"></script>
+    <link href= "studentPanel.css" rel= "stylesheet">
+    <title>TES - Guidance Panel</title>
 </head>
 <body>
     <div class="sidebar">
@@ -21,13 +21,13 @@
         <li>
             <a href="#">
                 <i class="fi fi-rs-dashboard"></i>
-                <span onclick="teacherDashboardFunction()">Dashboard</span>
+                <span onclick="studentDashboardFunction()">Dashboard</span>
             </a>
         </li>
         <li>
             <a href="#">
                 <i class="fi fi-ss-users-alt"></i>
-                <span onclick="">Teaching Performance</span>
+                <span onclick="">Fill Out Evaluation Form</span>
             </a>
         </li>
         <li class="logout">
@@ -44,7 +44,7 @@
             </div>
             <div class="dropdown">
                
-                <button class="dropbtn" value="username">Teacher</button>
+                <button class="dropbtn" value="username">Student</button>
                
                 <div class="dropdown-content">
                     <a href="#">Account Settings</a>
@@ -53,7 +53,7 @@
     
         </div>
          <div class="output">
-             <iframe id="myframe" src="../teacherFiles/teacherDashboard.php"></iframe>
+             <iframe id="myframe" src="../studentFiles/studentDashboard.php"></iframe>
          </div>
     </div>
 </body>
