@@ -38,7 +38,8 @@ body {
 .select-teacher select {
     border: 1px solid #000000;
     border-radius: 5px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
 }
 
 .left {
@@ -46,13 +47,63 @@ body {
     margin-left: 35px;
     margin-top: 40px;
     width: 20%;
-    height: 200px;
+    height: 100%;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
     box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+    float: left;
 }
 
-.left label {
-    margin-top: 20px;
+.right {
+    background-color: #ffffff;
+    margin-right: 35px;
+    margin-top: 40px;
+    width: 70%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+    float: right;
 }
+
+.right h3 {
+    text-align: center;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.text-left {
+    padding: 10px;
+}
+
+fieldset {
+    background-color: #C8CACE;
+    margin-top: 20px;
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px groove (internal value);
+}
+  
+legend {
+    background-color: #272829;
+    color: white;
+    padding: 5px 10px;
+}
+  
+input {
+    margin: 5px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+}
+

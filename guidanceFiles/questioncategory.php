@@ -27,6 +27,7 @@ guidanceCategoryFunction();
     <div class="popup">
     <div class="close-btn">&times;</div>
         <div class="form">
+            <form method="POST">
             <h2>Question Category</h2>
             <div class="form-element">
                 <input type="text" placeholder="Category Name" id="categoryname" name="categoryName">

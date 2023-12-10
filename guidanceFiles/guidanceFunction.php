@@ -8,6 +8,7 @@
                 else{
                 $guidanceEdit = $_GET['edit'];
                 }
+
             $sqlquery = mysqli_query($con, "SELECT * FROM tblcategory");
            
             while ($rows = mysqli_fetch_array($sqlquery)) {
@@ -38,16 +39,16 @@
         if(isset($_POST['addbtn'])){
             
     
-            if (!isset($_SESSION['guidanceID'])) {
-                header('Location: http://localhost/TES/guidanceFiles/guidancepanel.php');
+            if (!isset($_SESSION['guidance_ID'])) {
+                header('Location: http://localhost/TES/guidanceFiles/index.php');
                 exit();
             }        
         
-     
             $guidanceID = $_SESSION['guidance_ID'];
 
             $categoryName = $_POST['categoryName'];
             $description = $_POST['description'];
+
             $sql = "INSERT INTO tblcategory (guidanceID, categoryName, description, date_created, date_updated)
             VALUES ('$guidanceID', '$categoryName', '$description', current_timestamp(), NULL);";
             mysqli_query($con, $sql);
@@ -83,5 +84,11 @@
                     header('Location: http://localhost/TES/guidanceFiles/questioncategory.php');
                 }
     
+    }
+?>
+
+<?php
+    function get_question_Records(){
+        
     }
 ?>

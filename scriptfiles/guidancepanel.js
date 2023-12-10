@@ -9,3 +9,7 @@ function questioncategoryFunction() {
 function evaluationformFunction() {
     document.getElementById("myframe").src = "../guidanceFiles/evaluationform.php";
 }
+
+function evaluationreportFunction() {
+    document.getElementById("myframe").src = "../guidanceFiles/evaluationreport.php";
+}

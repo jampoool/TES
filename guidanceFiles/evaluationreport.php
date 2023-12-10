@@ -10,24 +10,75 @@
 </head>
 <body>
     <div class="evaluation-report">
-        <h2>Evaluation Form</h2>
-        <span>Home / Manage Evaluation Form</span>
+        <h2>Evaluation Report</h2>
+        <span>Home / Manage Evaluation Report</span>
     </div>
     <div class="select-teacher">
         <label for="teacher">Select Teacher:</label>
-        <select name="teacher" id="cars">
-            <option value="teacher1">Teacher1</option>
-            <option value="teacher2">Teacher2</option>
-            <option value="teacher3">Teacher3</option>
-            <option value="teacher4">Teacher4</option>
+        <select name="teacher" id="teacher">
+            <option value="teacher1">None</option>
+            <option value="teacher1">Darlene Maglangit</option>
         </select>
     </div>
     <div class="left">
-        <label for="">Sample1</label>
+        <a href="first">BSIT 1-A -- 101-Programming</a>
         <br>
-        <label for="">Sample2</label>
+        <a href="second">BSIT 1-B -- 102-Networking</a>
         <br>
-        <label for="">Sample3</label> 
+        <a href="third">BSIT 1-C -- 103-Designing</a>
+    </div>
+    <div class="right">
+        <h3>Evaluation Report</h3>
+        <div class="teacherinfo">
+            <label for="teacherinfo" class="text-left">Faculty: Darlene Maglangit</label>
+            <br>
+            <label for="teacherinfo" class="text-left">Class: BSIT 1-A</label>
+            <br>
+            <label for="teacherinfo" class="text-left">Total Students Evaluated: 0</label>
+            <br>
+            <label for="teacherinfo" class="text-left">Academic Year: 2023-2024</label>
+            <br>
+            <label for="teacherinfo" class="text-left">Subject: 101 - Programming</label>
+        </div>
+        <form method="">
+            <fieldset>
+                <legend>Rating Legend:</legend>
+                <label for="rating1">1 = Strongly Disagree</label>
+                <label for="rating2">2 = Disagree</label>
+                <label for="rating3">3 = Uncertain</label>
+                <label for="rating4">4 = Agree</label>
+                <label for="rating5">5 = Strongly Agree</label>
+            </fieldset>
+        </form>
+        <center>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+            </tr>
+            <tr>
+                <td>Question 1</td>
+                <td>
+                    <input type="radio" name="optradio1" value="1">
+                </td>
+                <td>
+                    <input type="radio" name="optradio1" value="2">
+                </td>
+                <td>
+                    <input type="radio" name="optradio1" value="3">
+                </td>
+                <td>
+                    <input type="radio" name="optradio1" value="4">
+                </td>
+                <td>
+                    <input type="radio" name="optradio1" value="5">
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

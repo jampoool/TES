@@ -22,13 +22,12 @@
     <div class="popup">
     <div class="close-btn">&times;</div>
         <div class="form">
+          <form method="POST">
             <h2>Evaluation Form</h2>
             <div class="form-element">
                 <select name="category" id="category">
-                    <option value="">Please select here</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
+                <option value="value" disabled selected>Select Category</option>
+                    
                 </select>
             </div>
             <div class="form-element">
@@ -57,19 +56,19 @@
                 <tr>
                     <td>Question 1</td>
                     <td>
-                      <input type="radio" name="optradio1">
+                      <input type="radio"  name="optradio1">
                     </td>
                     <td>
-                      <input type="radio" name="optradio1">
+                      <input type="radio"  name="optradio1">
                     </td>
                     <td>
-                      <input type="radio" name="optradio1">
+                      <input type="radio"  name="optradio1">
                     </td>
                     <td>
-                      <input type="radio" name="optradio1">
+                      <input type="radio"  name="optradio1">
                     </td>
                     <td>
-                      <input type="radio" name="optradio1">
+                      <input type="radio"  name="optradio1">
                     </td>
                 </tr>
         </table>
