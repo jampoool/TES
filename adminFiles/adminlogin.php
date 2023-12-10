@@ -25,7 +25,7 @@ if (isset($_POST['loginBtn'])) {
         exit();
     } else {
         // Admin authentication failed
-        echo "Invalid username or password";
+        echo '<script>alert("Invalid username or password")</script>';
     }
 }
 
@@ -60,7 +60,7 @@ if (isset($_POST['loginBtn'])) {
             </div>
             <input type="checkbox" onclick="myFunction()">
                 <label for="show-pass">Show Password</label><br>
-            <input type="submit" name="loginBtn" value="Login">
+            <input type="submit" class="loginBtn" name="loginBtn" value="Login">
         </form>
     </div>
     <script>
