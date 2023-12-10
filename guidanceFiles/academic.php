@@ -7,31 +7,28 @@
     <script type="text/javascript" src="../scriptfiles/guidancepanel.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link href= "https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel= "stylesheet">
-    <link href= "evaluationform.css" rel= "stylesheet">
-    <title>Guidance - Evaluation Form</title>
+    <link href= "academic.css" rel= "stylesheet">
+    <title>Guidance - Academic Year</title>
 </head>
 <body>
     <div class="evaluation-form">
-        <h2>Evaluation Form</h2>
-        <span>Home / Manage Evaluation Form</span>
+        <h2>Academic Year</h2>
+        <span>Home / Manage Academic Year</span>
     </div>
     <div class="left">
-        <button id="addEvaluationForm">Add New Evaluation Form</button>
+        <button id="addAcademicYear">Add New Academic Year</button>
     </div>
     <div class="popup">
     <div class="close-btn">&times;</div>
         <div class="form">
           <form method="POST">
-            <h2>Evaluation Form</h2>
+            <h2>Academic Year</h2>
             <div class="form-element">
-                <select name="category" id="category">
-                <option value="value" disabled selected>Select Category</option>     
-                </select>
+                <input type="text" id="academicYear" placeholder="Academic Year" name="">
             </div>
             <div class="form-element">
-                <textarea name="" id="question" placeholder="Question"></textarea>
+                <input type="text" id="semester" placeholder="Semester" name="">
             </div>
             <div class="form-element">
                 <button id="add-btn" name="addbtn">Add</button>
@@ -45,31 +42,31 @@
             <thead>
                 <tr>
                     <th>Academic Year</th>
-                    <th>Question</th>
-                    <th>Answered</th>
+                    <th>Semester</th>
+                    <th>System Default</th>
+                    <th>Evaluation Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
               <tr>
                   <td>2023 - 2024</td>
-                  <td>Sample Question</td>
-                  <td>Sample Answer</td>
+                  <td>1st Semester</td>
                   <td>
-                    <div class="dropdown">
-                      <div class="dropdown-select">
-                        <span class="select">Action</span>
-                        <i class="fi fi-rr-caret-down"></i>
-                      </div>
-                      <div class="dropdown-list">
-                        <div class="dropdown-list-item">Manage</div>
-                      </div>
-                    </div>
+                    <section>
+                        <button class="showModal">No</button>
+                        <span class="overlay"></span>
+                    </section>
+                  </td>
+                  <td>Not yet started</td>
+                  <td>
+                    <a name="edit" id="editbtn" href="?edit=<?php echo $rows[''];?>">Edit</a>
+                    <a id="deletebtn" href="#" onclick="del(<?php echo $rows[''];?>)">Delete</a>
                   </td>
               </tr>
             </tbody>
         </table>
-      <script type="text/javascript" src="../scriptfiles/evaluationForm.js"></script>
+    <script type="text/javascript" src="../scriptfiles/academic.js"></script>
   </div>
 </body>
 </html>

@@ -13,3 +13,6 @@ function evaluationformFunction() {
 function evaluationreportFunction() {
     document.getElementById("myframe").src = "../guidanceFiles/evaluationreport.php";
 }
+function academicYear() {
+    document.getElementById("myframe").src = "../guidanceFiles/academic.php";
+}

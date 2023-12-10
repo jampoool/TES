@@ -101,17 +101,17 @@ body {
 
 .popup .form .form-element label {
     font-size: 15px;
-    color: #222;
+    color: #000000;
     z-index: 1;
 }
 
-.popup .form .form-element select, .popup .form .form-element textarea {
+.popup .form .form-element input[type="text"] {
     margin-top: 5px;
     display: block;
     width: 100%;
     padding: 10px;
     outline: none;
-    border: 1px solid #aaa;
+    border: 1px solid #000000;
     border-radius: 5px;
     z-index: 1;
 }
@@ -150,43 +150,37 @@ td {
     font-size: 12px;
 }
 
-.dropdown {
-    width: 75px;
-    position: relative;
-}
-
-.dropdown-select {
-    padding: 10px;
-    border-radius: 5px;
+#editbtn {
+    text-decoration: none;
     background: #1877F2;
     color: #FFFFFF;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+#deletebtn {
+    text-decoration: none;
+    background: #DC3545;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+td button {
+    font-size: 10px;
+    color: #FFFFFF;
+    padding: 10px;
+    border: none;
+    background: #272829;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.dropdown-list {
-    border-radius: 5px;
-    background: #1877F2;
-    color: #FFFFFF;
+button .showModal {
     position: absolute;
-    top: 110%;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    visibility: 0.2s linear;
-    transition: 0.2s linear;
-    cursor: pointer;
+    transform: translate(-50%, -50%);
 }
 
-.dropdown-list-item {
-    padding: 10px;
+span .overlay {
+    
 }
-
-.dropdown:hover .dropdown-list {
-    opacity: 1;
-    visibility: visible;
-}
-

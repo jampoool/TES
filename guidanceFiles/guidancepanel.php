@@ -44,6 +44,12 @@
                 <span onclick="evaluationreportFunction()">Manage Evaluation Report</span>
             </a>
         </li>
+        <li>
+            <a href="#">
+                <i class="fi fi-rr-form"></i>
+                <span onclick="academicYear()">Manage Academic Year</span>
+            </a>
+        </li>
         <li class="logout">
             <a href="logout.php">
                 <i class="fi fi-br-exit"></i>
