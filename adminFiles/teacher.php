@@ -4,6 +4,10 @@ include "adminFunction.php";
 session_start();
 teacherFunction();
 importTeacherRecords();
+if (!isset($_SESSION['adminID'])) {
+    header('Location: http://localhost/TES/adminFiles/adminlogin.php');
+    exit();
+}     
 
 ?>
 <!DOCTYPE html>

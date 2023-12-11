@@ -2,15 +2,7 @@ function setupPopup() {
   document.querySelector("#addClass").addEventListener("click", function() {
       document.querySelector(".popup").classList.add("active");
   });
-  let isModalOpen = false;
-
-  document.querySelector("#editbtn").addEventListener("click", function(event) {
-
-    document.querySelector(".popup").classList.add("active");
-
-  });
  
-
   document.querySelector(".popup .close-btn").addEventListener("click", function() {
       document.querySelector(".popup").classList.remove("active");
   });
@@ -18,7 +10,14 @@ function setupPopup() {
   document.querySelector(".popup #add-btn").addEventListener("click", function() {
       document.querySelector(".popup").classList.remove("active");
   });
+
+  document.querySelector("#editbtn").addEventListener("click", function(event) {
+
+    document.querySelector(".popup").classList.add("active");
+
+  });
 }
+
 document.addEventListener("DOMContentLoaded", setupPopup);
 
 

@@ -4,6 +4,10 @@ include "adminFunction.php";
 session_start();
 subjectFunction();
 importSubjectRecords();
+if (!isset($_SESSION['adminID'])) {
+    header('Location: http://localhost/TES/adminFiles/adminlogin.php');
+    exit();
+}     
 ?>
 <!DOCTYPE html>
 <html lang="en">

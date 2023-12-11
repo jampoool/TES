@@ -854,65 +854,6 @@ function insertClassRecord()
 }
 ?>
 
- <?php 
-    function classFunction(){
-        include "../connect.php";
-      if (isset($_GET['edit'])){
-        
-         $editClass = $_GET['edit'];
-      
-         $sql= "SELECT * FROM tblclass";
-         $sqlquery = mysqli_query($con, $sql);
-            while ($rows = mysqli_fetch_array($sqlquery)) {
-       if($editClass == $rows['classID'] ) {?>
-                    <div class="popup">
-                    
-            </div>
-             <?php } else{ ?>
-                <script type="text/javascript" src="../dist/js/jquery.js"></script>
-                <script type="text/javascript" src="../scriptfiles/classAdmin.js">setupPopup();</script>
-                <link href= "class.css" rel= "stylesheet">
-        <div class="popup">
-        <div class="close-btn">&times;</div>
-        <div class="form">
-            <form method="POST">
-                <h2>Class</h2>
-                <div class="form-element">
-                    <input type="text" id="classID" placeholder="Class ID" name="classID" required>
-                </div>
-                <div class="form-element">
-                    <input type="text" id="classCode" placeholder="Class Code" name="classCode" required>
-                </div>
-                <div class="form-element">
-                    <input type="text" id="className" placeholder="Class Name" name="className" required>
-                </div>
-                <select name="teacherID" id="teacherSelect">
-                <option value="value" disabled selected>Select Teacher</option>
-                <?php
-                    $sql =mysqli_query($con,"SELECT * FROM tblteacher");
-                    while($rows= $sql->fetch_assoc()){?>
-                <option value="<?php echo $rows['teacher_ID']; ?>"><?php echo $rows['T_fname']." ". $rows['T_lname'];?></option>
-                    <?php } ?>
-                </select>
-                <select name="subjectID" id="subjectSelect">
-                <option value="value" disabled selected>Select Subject</option>
-            <?php
-                    $sql =mysqli_query($con,"SELECT * FROM tblsubject");
-                    while($rows= $sql->fetch_assoc()){?>
-                <option value="<?php echo $rows['subject_ID']; ?>"><?php echo $rows['subCode']." ". $rows['subName'];?></option>
-                <?php } ?>
-            </select>
-                <div class="form-element">
-                    <button id="add-btn" name="addbtn">Add</button>
-                </div>
-            </form>
-            </div>
-    </div>
-    <?php } ?>
-<?php } ?> 
- <?php } ?> 
-<?php } ?>
-
 <?php
 function myClassFunction(){
 include "../connect.php";
@@ -943,15 +884,15 @@ if (isset($_GET['edit'])) {
                     <h2>Update Class Data</h2>
                     <div class="form-element">
                         <input type="text" id="classEditID" placeholder="Class ID" 
-                        value="<?php echo $rows['classID']?>" name="classEditID" required>
+                        value="<?php echo $rows['classID']?>" name="classEditID" >
                     </div>
                     <div class="form-element">
                         <input type="text" id="classCodeEdit" placeholder="Class Code"
-                        value="<?php echo $rows['classCode']?>" name="classCodeEdit" required>
+                        value="<?php echo $rows['classCode']?>" name="classCodeEdit" >
                     </div>
                     <div class="form-element">
                         <input type="text" id="classNameEdit" placeholder="Class Name"
-                        value="<?php echo $rows['className']?>" name="classNameEdit" required>
+                        value="<?php echo $rows['className']?>" name="classNameEdit" >
                     </div>
                     <select name="teacherEditID" id="teacherSelect">
                     <option value="value" disabled selected>Select Teacher</option>
@@ -987,13 +928,13 @@ if (isset($_GET['edit'])) {
             <form method="POST">
                 <h2>Class</h2>
                 <div class="form-element">
-                    <input type="text" id="classID" placeholder="Class ID" name="classID" required>
+                    <input type="text" id="classID" placeholder="Class ID" name="classID" >
                 </div>
                 <div class="form-element">
-                    <input type="text" id="classCode" placeholder="Class Code" name="classCode" required>
+                    <input type="text" id="classCode" placeholder="Class Code" name="classCode" >
                 </div>
                 <div class="form-element">
-                    <input type="text" id="className" placeholder="Class Name" name="className" required>
+                    <input type="text" id="className" placeholder="Class Name" name="className" >
                 </div>
                 <select name="teacherID" id="teacherSelect">
                 <option value="value" disabled selected>Select Teacher</option>

@@ -4,6 +4,10 @@
     session_start();
     guidanceFunction();
     importGuidanceRecords();
+    if (!isset($_SESSION['adminID'])) {
+        header('Location: http://localhost/TES/adminFiles/adminlogin.php');
+        exit();
+    }     
     
 ?>
 <!DOCTYPE html>

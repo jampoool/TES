@@ -3,6 +3,10 @@
     include "adminFunction.php";
     session_start();
     insertClassRecord();
+    if (!isset($_SESSION['adminID'])) {
+        header('Location: http://localhost/TES/adminFiles/adminlogin.php');
+        exit();
+    }     
 ?>
 <!DOCTYPE html>
 <html lang="en">
