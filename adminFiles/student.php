@@ -1,5 +1,5 @@
 <?php 
-include "connect.php";
+include "../connect.php";
 include "adminFunction.php";
 session_start();
 studentFunction();      

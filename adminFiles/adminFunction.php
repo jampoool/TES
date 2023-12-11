@@ -9,7 +9,7 @@
     ///////         //////     /////////////////
     function get_Admin_Records(){
         //This is to display all the Admin Records
-        include "connect.php";
+        include "../connect.php";
             if(!isset($_GET['edit'])){
                 $adminEdit = "";
                 } 
@@ -43,7 +43,7 @@
        <?php } ?>
 <?php 
     function adminFunction(){
-        include "connect.php";
+        include "../connect.php";
         if(isset($_POST['addbtn'])){
             
     
@@ -119,7 +119,7 @@
         
     function get_Guidance_Records(){
         //This is to display all the Guidance Records
-        include "connect.php";
+        include "../connect.php";
             if(!isset($_GET['edit'])){
                 $guidanceEdit = "0";
                 } 
@@ -159,7 +159,7 @@
        <?php } ?>
 <?php 
     function guidanceFunction(){
-        include "connect.php";
+        include "../connect.php";
         if(isset($_POST['addbtn'])){
             
     
@@ -231,7 +231,7 @@
 ?>
 <?php 
  function importGuidanceRecords(){
-    include "connect.php";
+    include "../connect.php";
 
     if (isset($_POST['import'])) {
         if (!isset($_SESSION['adminID'])) {
@@ -294,7 +294,7 @@
 ?>
 <?php 
     function get_teacher_Records(){
-        include "connect.php";
+        include "../connect.php";
         if(!isset($_GET['edit'])){
             $teacherEdit = "0";
              } 
@@ -332,7 +332,7 @@
 
 <?php 
     function teacherFunction(){
-        include "connect.php";
+        include "../connect.php";
         if(isset($_POST['addbtn'])){
         if (!isset($_SESSION['adminID'])) {
 
@@ -394,7 +394,7 @@
     ?>
 <?php 
  function importTeacherRecords(){
-    include "connect.php";
+    include "../connect.php";
 
     if (isset($_POST['import'])) {
         if (!isset($_SESSION['adminID'])) {
@@ -456,7 +456,7 @@
     ////////////////////////    //////////////////////////    /////////////////////////
     ////////////////////////    //////////////////////////    ///////////////////////
     function get_subject_records(){
-        include "connect.php";
+        include "../connect.php";
         if(!isset($_GET['edit'])){
             $subjectEdit = "0";
             } 
@@ -489,7 +489,7 @@
     <?php } ?>
 <?php 
     function subjectFunction(){
-        include "connect.php";
+        include "../connect.php";
         if(isset($_POST['addbtn'])){
             
     
@@ -550,7 +550,7 @@
 ?>
 <?php 
  function importSubjectRecords(){
-    include "connect.php";
+    include "../connect.php";
 
     if (isset($_POST['import'])) {
         if (!isset($_SESSION['adminID'])) {
@@ -612,7 +612,7 @@
 
 
     function get_student_Records(){
-        include "connect.php";
+        include "../connect.php";
         if(!isset($_GET['edit'])){
             $studentEdit = "0";
             } 
@@ -649,7 +649,7 @@
         <?php }
     }
     function studentFunction(){
-        include "connect.php";
+        include "../connect.php";
         if(isset($_POST['addbtn'])){
             
     
@@ -715,7 +715,7 @@
 ?>
 <?php 
  function importStudentRecords(){
-    include "connect.php";
+    include "../connect.php";
 
     if (isset($_POST['import'])) {
         if (!isset($_SESSION['adminID'])) {
@@ -767,7 +767,7 @@
 <?php
     function get_class_Records(){
         //This is to display all the Guidance Records
-        include "connect.php";
+        include "../connect.php";
        
             $sql= "SELECT tblclass.classID, tblclass.classCode, tblclass.className, CONCAT (tblteacher.T_fname,' ', tblteacher.T_lname) AS 'Teacher'
                     ,CONCAT(tblsubject.subCode,': ',tblsubject.subName) AS 'Subject'
@@ -795,7 +795,7 @@
          <?php
 function insertClassRecord()
 {
-    include "connect.php";
+    include "../connect.php";
 
     if (isset($_POST['addbtn'])) {
 
@@ -856,7 +856,7 @@ function insertClassRecord()
 
  <?php 
     function classFunction(){
-        include "connect.php";
+        include "../connect.php";
       if (isset($_GET['edit'])){
         
          $editClass = $_GET['edit'];
@@ -915,7 +915,7 @@ function insertClassRecord()
 
 <?php
 function myClassFunction(){
-include "connect.php";
+include "../connect.php";
 
 if (isset($_GET['edit'])) {
     $editClass = $_GET['edit'];
