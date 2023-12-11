@@ -1,14 +1,14 @@
 <?php
-    $server = "localhost";
+    $server = "127.0.0.1:3380";
     $username = "root";
     $password = "";
     $database = "teacheval_db";
 
     $con = new mysqli($server,$username,$password,$database);
 		if ($con->connect_error) {
-		//echo "not connected" ;
+		echo "not connected" ;
 		}
 		else{
-		//echo "CONNECTED <br>";
+		echo "CONNECTED <br>";
 		}
 ?>
