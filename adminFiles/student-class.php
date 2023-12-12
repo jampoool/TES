@@ -1,3 +1,13 @@
+<?php
+    include "../connect.php";
+    include "adminFunction.php";
+    session_start();
+    crudStudentClasses();
+    if (!isset($_SESSION['adminID'])) {
+        header('Location: http://localhost/TES/adminFiles/adminlogin.php');
+        exit();
+    }     
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,62 +27,21 @@
     <div class="left">
         <button id="addStudentClass">Add New Student Class</button>
     </div>
-    <div class="popup">
-        <div class="close-btn">&times;</div>
-        <div class="form">
-            <h2>Student Class</h2>
-            <form method="POST" name="uploadCsv" enctype="multipart/form-data">
-            <div class="form-element">
-                <label for="file" class="choose">Choose CSV File</label>
-                <input type="file" class="uploadfile" name="file" accept=".csv">
-                <button type="submit" class="import" name="import">Import</button>
-            </div>
-            <div class="form-element">
-                <input type="text" placeholder="Admin ID" id="admin-id" required>
-            </div>
-            <div class="form-element">
-                <input type="text" placeholder="Student ID" id="student-id" required>
-            </div>
-            <div class="form-element">
-                <input type="text" placeholder="Class ID" id="class-id" required>
-            </div>
-            <div class="form-element">
-                <button id="add-btn">Add</button>
-            </div>
-        </div>
-    </div>
+    <?php myStudentClassesFunction(); ?>
     <center>
         <div class="container">
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Class ID</th>
                         <th>Class Code</th>
                         <th>Class Name</th>
+                        <th>Student Name</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>Edinburgh</td>
-                        <td>2011-04-25</td>
-                        <td> <a id="editbtn" href="?edit=<?php echo $rows[0]; ?>">Edit</a>
-                            <a id="deletebtn" href="#" onclick="del(<?php echo $rows[0];?>)">Delete</a> 
-                        </td>
-                    </tr>
+                   <?php get_studentClass_Records(); ?>
             </table>
-    <script>
-        document.querySelector("#addStudentClass").addEventListener("click", function(){
-            document.querySelector(".popup").classList.add("active");
-        });
-        document.querySelector(".popup .close-btn").addEventListener("click", function(){
-            document.querySelector(".popup").classList.remove("active");
-        });
-        document.querySelector(".popup #add-btn").addEventListener("click", function(){
-            document.querySelector(".popup").classList.remove("active");
-        });
-        new DataTable('#example');
-    </script>
+    <script type="text/javascript" src="../scriptFiles/studentClasses.js"></script>
 </body>
 </html>

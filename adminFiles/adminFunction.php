@@ -79,7 +79,7 @@
             $ID = $_GET['edit'];
 
             $sqledit = "UPDATE `tbladmin` SET `adminID` = '$adminEditID', `username` = '$adminEditUsername', `adminpassword` = '$adminEditPassword', 
-            `date_updated` =  current_timestamp() WHERE `tbladmin`.`adminID` = $ID ";
+            `date_updated` =  current_timestamp() WHERE `tbladmin`.`adminID` = $ID";
              mysqli_query($con, $sqledit);
              header('Location: http://localhost/TES/adminFiles/admin.php');
         }
@@ -87,17 +87,9 @@
             if(isset($_GET['del']))
             { 
                 $delID = $_GET['del'];
-                $adminEditUsername = "";
-                $adminEditPassword = "";
-                $sqlquery = mysqli_query($con, "SELECT * FROM tbladmin where adminID = $delID");
-                    while($rows = mysqli_fetch_array($sqlquery))
-                        {
-                            $adminEditUsername = $rows['username'];
-                            $adminEditPassword = $rows['adminpassword'];
-                        }
                 $sqldelete = "DELETE FROM tbladmin WHERE `tbladmin`.`adminID` = $delID";
                 mysqli_query($con, $sqldelete);
-                echo "<script>alert('$adminEditUsername $adminEditPassword is DELETED!');</script>";
+               
                 header('Location: http://localhost/TES/adminFiles/admin.php');
             }
     
@@ -147,7 +139,7 @@
                     <td><?php echo $rows['G_fname']; ?></td>
                     <td><?php echo $rows['G_lname']; ?></td>
                     <td><?php echo $rows['G_emailAdd']; ?></td>
-                    <td><?php echo $rows['password']; ?></td>
+                    <td><?php echo $rows['G_password']; ?></td>
                     <td> <a id="editbtn" href="?edit=<?php echo $rows[0];?>">Edit</a>
                     <a id="deletebtn" href="#" onclick="del(<?php echo $rows[0];?>)">Delete</a>
                     </td>
@@ -178,9 +170,9 @@
             $lastname = $_POST['lname'];
             $email = $_POST['email'];
             $pass = $_POST['pass'];
-            $sql = "INSERT INTO tblguidancestaff (guidance_ID, adminID, G_fname, G_lname, G_emailAdd, password, status, date_created, date_updated)
-                     VALUES ('$guidanceID', '$adminId', '$firstname', '$lastname', '$email', ' $pass', '0', current_timestamp(), NULL);";
-            $result = mysqli_query($con, $sql);
+            $sql = "INSERT INTO tblguidancestaff (guidance_ID, adminID, G_fname, G_lname, G_emailAdd, G_password, status, date_created, date_updated)
+            VALUES ('$guidanceID', '$adminId', '$firstname', '$lastname', '$email', '$pass', '0', current_timestamp(), NULL);";
+            mysqli_query($con, $sql);
     
             }
     
@@ -205,7 +197,7 @@
             $ID = $_GET['edit'];
 
             $sqledit = "UPDATE `tblguidancestaff` SET `guidance_ID` = '$guidanceEditID', `adminID` = '$adminId', `G_fname` = '$guidanceEditfname', `G_lname` = '$guidanceEdilname', `G_emailAdd` = '$guidanceEditEmail', 
-            `password` = '$passwordEditPass', `date_updated` =  current_timestamp() WHERE `tblguidancestaff`.`guidance_ID` = $ID ";
+            `G_password` = '$passwordEditPass', `date_updated` =  current_timestamp() WHERE `tblguidancestaff`.`guidance_ID` = $ID";
              mysqli_query($con, $sqledit);
              header('Location: http://localhost/TES/adminFiles/guidance.php');
         }
@@ -792,7 +784,8 @@
                 </form>
          </tr>
          <?php } ?>
-         <?php
+
+<?php
 function insertClassRecord()
 {
     include "../connect.php";
@@ -874,9 +867,11 @@ if (isset($_GET['edit'])) {
         if ($editClass == $rows['classID']) {
             $classFound = true;
             ?>
-               <div class="left">
+             <script type="text/javascript" src="../scriptFiles/classAdmin.js">editPopup();</script>
+            <div class="left">
                   <button id="editbtn">Update Class</button>
-                 </div>
+            </div>
+
             <div class="popup">
                <div class="close-btn">&times;</div>
                     <div class="form">
@@ -967,13 +962,13 @@ if (isset($_GET['edit'])) {
             <form method="POST">
                 <h2>Class</h2>
                 <div class="form-element">
-                    <input type="text" id="classID" placeholder="Class ID" name="classID" required>
+                    <input type="text" id="classID" placeholder="Class ID" name="classID" >
                 </div>
                 <div class="form-element">
-                    <input type="text" id="classCode" placeholder="Class Code" name="classCode" required>
+                    <input type="text" id="classCode" placeholder="Class Code" name="classCode" >
                 </div>
                 <div class="form-element">
-                    <input type="text" id="className" placeholder="Class Name" name="className" required>
+                    <input type="text" id="className" placeholder="Class Name" name="className" >
                 </div>
                 <select name="teacherID" id="teacherSelect">
                 <option value="value" disabled selected>Select Teacher</option>
@@ -991,6 +986,213 @@ if (isset($_GET['edit'])) {
                 <option value="<?php echo $rows['subject_ID']; ?>"><?php echo $rows['subCode']." ". $rows['subName'];?></option>
                 <?php } ?>
             </select>
+                <div class="form-element">
+                    <button id="add-btn" name="addbtn">Add</button>
+                </div>
+            </form>
+            </div>
+    </div>
+<?php } ?>
+<?php } ?>
+
+<?php
+    function get_studentClass_Records(){
+        //This is to display all the Guidance Records
+        include "../connect.php";
+       
+            $sql= "SELECT tblstudentclasses.studentClassesID, tblclass.classCode AS 'Class Code', tblclass.className AS 'Class Name', CONCAT (tblstudent.stud_fname,' ', tblstudent.stud_lname) AS 'Student'
+                    FROM tblstudentclasses
+                    INNER JOIN tblclass ON tblclass.classID = tblstudentclasses.classID
+                    INNER JOIN tblstudent ON tblstudent.studentID = tblstudentclasses.studID;";
+
+            $sqlquery = mysqli_query($con, $sql);
+             while ($rows = mysqli_fetch_array($sqlquery)) {
+                ?>
+                <tr>
+                <form method="POST">
+                    <td><?php echo $rows['Class Code']; ?></td>
+                    <td><?php echo $rows['Class Name']; ?></td>
+                    <td><?php echo $rows['Student']; ?></td>
+                    <td> <a name="edit" id="editbtn" href="?edit=<?php echo $rows['studentClassesID'];?>">Edit</a>
+                         <a id="deletebtn" href="#" onclick="del(<?php echo $rows['studentClassesID'];?>)">Delete</a>
+                    </td>
+
+                    <?php } ?>
+                </form>
+         </tr>
+<?php } ?>
+
+<?php
+function crudStudentClasses()
+{
+    include "../connect.php";
+
+    if (isset($_POST['addbtn'])) {
+
+        if (!isset($_SESSION['adminID'])) {
+
+            header('Location: http://localhost/TES/adminFiles/student-class.php');
+            exit();
+        }
+
+        $adminId = $_SESSION['adminID'];
+        $classID = $_POST['classID'];
+        $studentID = $_POST['studentID'];
+       
+
+        $sql = "INSERT INTO tblstudentclasses (adminID, studID, classID, date_created, date_updated)
+            VALUES ('$adminId', '$studentID', '$classID', current_timestamp(), NULL);";
+
+        if (mysqli_query($con, $sql)) {
+            header('Location: http://localhost/TES/adminFiles/student-class.php');
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($con);
+        }
+    }
+        if(isset($_GET['del']))
+        { 
+            $delID = $_GET['del'];
+            $sqldelete = "DELETE FROM tblstudentclasses WHERE `tblstudentclasses`.`studentClassesID` = $delID";
+            mysqli_query($con, $sqldelete);
+            header('Location: http://localhost/TES/adminFiles/student-class.php');
+        }
+
+        if(isset($_POST['saveDetails'])){
+            if (!isset($_SESSION['adminID'])) {
+
+                header('Location: http://localhost/TES/adminFiles/student-class.php');
+                exit();
+            }
+            $adminId = $_SESSION['adminID'];
+    
+            $classEditID = $_POST['classEditID'];
+            $studentEditID = $_POST['studentEditID'];
+           
+
+            $ID = $_GET['edit'];
+
+            $sqledit = "UPDATE `tblstudentclasses` SET `studID` = '$studentEditID', `adminID` = '$adminId',
+            `classID` = '$classEditID',`date_updated` =  current_timestamp() WHERE `tblstudentclasses`.`studentClassesID` = $ID";
+             mysqli_query($con, $sqledit);
+             header('Location: http://localhost/TES/adminFiles/student-class.php');
+        }
+}
+?>
+
+<?php
+function myStudentClassesFunction(){
+include "../connect.php";
+
+if (isset($_GET['edit'])) {
+    $editStudentClass = $_GET['edit'];
+
+    $sql= "SELECT tblstudentclasses.studentClassesID, tblclass.classCode AS 'Class Code', tblclass.className AS 'Class Name', CONCAT (tblstudent.stud_fname,' ', tblstudent.stud_lname) AS 'Student'
+                    FROM tblstudentclasses
+                    INNER JOIN tblclass ON tblclass.classID = tblstudentclasses.classID
+                    INNER JOIN tblstudent ON tblstudent.studentID = tblstudentclasses.studID;";
+
+
+    $sqlquery = mysqli_query($con, $sql);
+    $classFound = false;
+
+    while ($rows = mysqli_fetch_array($sqlquery)) {
+        if ($editStudentClass == $rows['studentClassesID']) {
+            $classFound = true;
+            ?>
+             <script type="text/javascript" src="../scriptFiles/studentClasses.js">editPopup();</script>
+            <div class="left">
+                  <button id="editbtn">Update Classes</button>
+            </div>
+
+            <div class="popup">
+               <div class="close-btn">&times;</div>
+                    <div class="form">
+                    <form method="POST">
+                    <h2>Update Class Data</h2>
+                    <select name="classEditID" id="classSelect">
+                    <option value="value" disabled selected>Select Class</option>
+                    <?php
+                        $sql =mysqli_query($con,"SELECT * FROM tblclass");
+                        while($row1= $sql->fetch_assoc()){?>
+                    <option value="<?php echo $row1['classID']; ?>" ><?php echo $row1['classCode'];?></option>
+                        <?php } ?>
+                    </select>
+                    <select name="studentEditID" id="studentSelect">
+                    <option value="value" disabled selected >Select Student</option>
+                     <?php
+                        $sql =mysqli_query($con,"SELECT * FROM tblstudent");
+                        while($row2= mysqli_fetch_array($sql)){?>
+                        <option value="<?php echo $row2['studentID']; ?>" ><?php echo $row2['stud_fname']." ". $row2['stud_lname'];?></option>
+                        <?php } ?>
+                        </select>
+                        <div class="form-element">
+                        <button id="save-btn" name="saveDetails">Save Details</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        <?php }
+    }
+
+    if (!$classFound) {
+        ?>
+         
+        <div class="popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+            <form method="POST">
+                <h2>Student Classes</h2>
+                <div class="form-element">
+                    <label for="file" class="choose">Choose CSV File</label>
+                    <input type="file" class="uploadfile" name="file" accept=".csv">
+                    <button type="submit" class="import" name="import">Import</button>
+                 </div>
+                <select name="classID" id="classSelect">
+                    <option value="value" disabled selected>Select Class</option>
+                    <?php
+                        $sql =mysqli_query($con,"SELECT * FROM tblclass");
+                        while($row1= $sql->fetch_assoc()){?>
+                    <option value="<?php echo $row1['classID']; ?>" ><?php echo $row1['classCode'];?></option>
+                        <?php } ?>
+                </select>
+                <select name="studentID" id="studentSelect">
+                    <option value="value" disabled selected >Select Student</option>
+                     <?php
+                        $sql =mysqli_query($con,"SELECT * FROM tblstudent");
+                        while($row2= mysqli_fetch_array($sql)){?>
+                        <option value="<?php echo $row2['studentID']; ?>" ><?php echo $row2['stud_fname']." ". $row2['stud_lname'];?></option>
+                        <?php } ?>
+                </select>
+                <div class="form-element">
+                    <button id="add-btn" name="addbtn">Add</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    <?php }
+} else {
+    ?>
+    <div class="popup">
+    <div class="close-btn">&times;</div>
+        <div class="form">
+            <form method="POST">
+                <h2>Class</h2>
+                <select name="classID" id="classSelect">
+                    <option value="value" disabled selected>Select Class</option>
+                    <?php
+                        $sql =mysqli_query($con,"SELECT * FROM tblclass");
+                        while($row1= $sql->fetch_assoc()){?>
+                    <option value="<?php echo $row1['classID']; ?>" ><?php echo $row1['classCode'];?></option>
+                        <?php } ?>
+                </select>
+                <select name="studentID" id="studentSelect">
+                    <option value="value" disabled selected >Select Student</option>
+                     <?php
+                        $sql =mysqli_query($con,"SELECT * FROM tblstudent");
+                        while($row2= mysqli_fetch_array($sql)){?>
+                        <option value="<?php echo $row2['studentID']; ?>" ><?php echo $row2['stud_fname']." ". $row2['stud_lname'];?></option>
+                        <?php } ?>
+                </select>
                 <div class="form-element">
                     <button id="add-btn" name="addbtn">Add</button>
                 </div>

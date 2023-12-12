@@ -6,11 +6,11 @@ if (isset($_POST['loginBtn'])) {
     $username = $_POST['g_emailAdd'];
     $password = $_POST['g_password'];
 
-    $sql = "SELECT guidance_ID FROM tblguidancestaff WHERE G_emailAdd = ? AND password = ?";
+    $sql = "SELECT guidance_ID FROM tblguidancestaff WHERE G_emailAdd = ? AND G_password = ?";
     
     $stmt = mysqli_prepare($con, $sql);
 
-    mysqli_stmt_bind_param($stmt, 'ss', $username, $password);
+    mysqli_stmt_bind_param($stmt,'ss', $username, $password);
 
     mysqli_stmt_execute($stmt);
 
@@ -48,12 +48,12 @@ if (isset($_POST['loginBtn'])) {
         <h2>Welcome Guidance!</h2>
         <form method="post">
             <div class="txt-field">
-                <input type="text" name="g_emailAdd" required>
+                <input type="text" name="g_emailAdd" >
                 <span></span>
                 <label>Email Address</label>
             </div>
             <div class="txt-field">
-                <input type="password" name="g_password" required id="password">
+                <input type="password" name="g_password"  id="password">
                 <span></span>
                 <label>Password</label>
             </div>
