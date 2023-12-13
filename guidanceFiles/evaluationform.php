@@ -56,14 +56,8 @@
                   <td>Sample Question</td>
                   <td>Sample Answer</td>
                   <td>
-                    <div class="dropdown">
-                      <div class="dropdown-select">
-                        <span class="select">Action</span>
-                        <i class="fi fi-rr-caret-down"></i>
-                      </div>
-                      <div class="dropdown-list">
-                        <div class="dropdown-list-item">Manage</div>
-                      </div>
+                    <div class="manage-form">
+                      <input onclick="" type="submit" class="manageBtn" name="manageBtn" value="Manage">
                     </div>
                   </td>
               </tr>

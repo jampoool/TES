@@ -8,7 +8,7 @@
     <script type="text/javascript" src="dist/js/jquery.js"></script>
     <script type="text/javascript" src="../scriptfiles/studentPanel.js"></script>
     <link href= "studentDashboard.css" rel= "stylesheet">
-    <title>Guidance - Dashboard</title>
+    <title>Student - Dashboard</title>
 </head>
 <body>
     <body>

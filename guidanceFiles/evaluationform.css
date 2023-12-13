@@ -190,3 +190,13 @@ td {
     visibility: visible;
 }
 
+.manage-form input[type=submit] {
+    width: 50%;
+    height: 30px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #1877F2;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}

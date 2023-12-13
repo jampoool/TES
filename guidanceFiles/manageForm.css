@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    background: #C8CACE;
+}
+
+.manage-form {
+    background-color: #ffffff;
+    margin-left: 35px;
+    margin-top: 20px;
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+}
+
+.question-form {
+    width: 400px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+    padding: 10px;
+    height: 250px;
+    margin-top: 20px;
+    margin-left: 35px;
+    border-radius: 5px;
+    float: left;
+}
+
+.question-form h2 {
+    text-align: center;
+    color: #000000;
+    font-size: 25px;
+}
+
+.question-form .form-element {
+    margin: 15px 0px;
+}
+
+.question-form .form-element select, .question-form .form-element textarea {
+    margin-top: 10px;
+    display: block;
+    width: 90%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.question-form .form-element button {
+    width: 30%;
+    height: 35px;
+    border: none;
+    outline: none;
+    background: #1877F2;
+    color: #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 250px;
+}
+
+.evaluation-questionnaire {
+    background-color: #ffffff;
+    margin-right: 35px;
+    margin-top: 20px;
+    width: 60%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+    float: right;
+}
+
+.evaluation-questionnaire h4 {
+    float: left;
+    padding: 10px;
+}
+
+#manageForm {
+    padding: 10px;
+    background: #1877F2;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+    float: right;
+}
+
+#manageForm:active {
+    transform: scale(0.96);
+}
+
+.header {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #000000;
+}
+
+.popup {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 700px;
+    padding: 20px 30px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    transition: top 0ms ease-in-out 200ms;
+    opacity: 200ms ease-in-out 0ms;
+    transform: 20ms ease-in-out 0ms;
+    z-index: 1;
+    height: 350px;
+}
+
+.popup.active {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: top 0ms ease-in-out 0ms;
+    opacity: 200ms ease-in-out 0ms;
+    transform: 20ms ease-in-out 0ms;
+    z-index: 1;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: #888;
+    color: #eee;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.popup .form h2 {
+    text-align: center;
+    color: #000000;
+    font-size: 25px;
+    z-index: 1;
+}
+
+.popup .form .form-element {
+    margin: 15px 0px;
+    z-index: 1;
+    float: left;
+    align-items: center;
+}
+
+.popup .form .form-element label {
+    position: absolute;
+    font-size: 15px;
+    color: #000000;
+    z-index: 1;
+}
+
+.popup .form .form-element select {
+    position: absolute;
+    margin-top: 5px;
+    display: block;
+    width: 30%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.popup .form .form-element button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: #1877F2;
+    color: #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 90px;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+table {
+    float: right;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+    width: 50%;
+    margin-top: 20px;  
+}
+
+.saveDetails {
+    padding: 10px;
+    margin-top: 200px;
+    margin-left: 550px;
+}
+
+.saveDetails button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: #1877F2;
+    color: #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 10px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+#deletebtn {
+    text-decoration: none;
+    background: #DC3545;
+    color: #FFFFFF;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+fieldset {
+    background-color: #C8CACE;
+    margin-top: 70px;
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px groove (internal value);
+}
+  
+legend {
+    background-color: #272829;
+    color: white;
+    padding: 5px 10px;
+}
+  
+input {
+    margin: 5px;
+}
+
+.list {
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;  
+}

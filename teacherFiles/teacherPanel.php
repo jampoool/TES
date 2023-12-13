@@ -27,7 +27,7 @@
         <li>
             <a href="#">
                 <i class="fi fi-ss-users-alt"></i>
-                <span onclick="">Teaching Performance</span>
+                <span onclick="teacherPerformanceFunction()">Teaching Performance</span>
             </a>
         </li>
         <li class="logout">
@@ -50,7 +50,6 @@
                     <a href="#">Account Settings</a>
                 </div>
             </div>
-    
         </div>
          <div class="output">
              <iframe id="myframe" src="../teacherFiles/teacherDashboard.php"></iframe>
