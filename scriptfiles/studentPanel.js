@@ -1,3 +1,7 @@
 function studentDashboardFunction() {
     document.getElementById("myframe").src = "../studentFiles/studentDashboard.php";
 }
+
+function fillOutFormFunction() {
+    document.getElementById("myframe").src = "../studentFiles/fillOutForm.php";
+}

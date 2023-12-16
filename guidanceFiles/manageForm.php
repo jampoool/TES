@@ -1,3 +1,9 @@
+<?php 
+    include "../connect.php";
+    include "guidanceFunction.php";
+    insertRestriction();
+    insertQuestion();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,21 +16,26 @@
 </head>
 <body>
     <div class="manage-form">
-        <h2>Evaluation Report</h2>
-        <span>Home / Manage Evaluation Form / Manage Questionnaire</span>
+        <h2>Evaluation Form</h2>
+        <span>Home / Manage Evaluation Form</span>
     </div>
     <div class="question-form">
     <form method="POST">
         <h2>Evaluation Form</h2>
         <div class="form-element">
             <select name="category" id="category">
-                <option value="value" disabled selected>Select Category</option>     
+                <option value="value" disabled selected>Select Category</option> 
+               <?php 
+                $sql =mysqli_query($con,"SELECT * FROM tblcategory");
+                while($row2= $sql->fetch_assoc()){?> 
+                <option value="<?php echo $row2['categoryID']; ?>"><?php echo $row2['categoryName']; ?></option> 
+                 <?php } ?>
             </select>
             <div class="form-element">
-                <textarea name="" id="question" placeholder="Question"></textarea>
+                <textarea name="addDescription" id="question" placeholder="Question"></textarea>
             </div>
             <div class="form-element">
-                <button id="add-btn" name="addbtn">Save</button>
+               <input type="submit" id="add-btn" name="addQuestion">
             </div>
         </div>
     </form>
@@ -33,6 +44,16 @@
         <div class="header">
             <h4>Evaluation Questionnaire for Academic: 2023-2024 1st</h4>
             <button id="manageForm">Evaluation Restriction</button>
+            <script >
+            document.querySelector("#manageForm").addEventListener("click", function() {
+                document.querySelector(".popup").classList.add("active");
+            });
+            document.querySelector(".popup .close-btn").addEventListener("click", function() {
+                document.querySelector(".popup").classList.remove("active");
+            });
+            document.querySelector(".popup #add-btn").addEventListener("click", function() {
+                document.querySelector(".popup").classList.remove("active");
+            });</script>
         </div>
         <div class="popup">
         <div class="close-btn">&times;</div>
@@ -41,8 +62,13 @@
                 <h2>Manage Evaluation Restriction</h2>
                 <div class="form-element">
                     <span>Class</span>
-                    <select name="category" id="category">
-                        <option value="value" disabled selected>Please select here</option>     
+                    <select name="classInsert" id="category">
+                        <option value="value" disabled selected>Please select here</option> 
+                        <?php 
+                            $sql =mysqli_query($con,"SELECT * FROM tblclass");
+                            while($row1= $sql->fetch_assoc()){?> 
+                            <option value="<?php echo $row1['classID']; ?>"><?php echo $row1['classCode']; ?></option> 
+                        <?php } ?>   
                     </select>
                 </div>
                 <div class="form-element">
@@ -50,26 +76,14 @@
                 </div>
             </form>
             <table>
-                <tr>
-                    <th>Class</th>
-                    <th>Teacher</th>
-                    <th>Subject</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td>Question 1</td>
-                    <td>Question 1</td>
-                    <td>Question 1</td>
-                    <td>
-                        <a id="deletebtn" href="#" onclick="">Delete</a>
-                    </td>
-                </tr>
+                <?php restrictionRecords();?>
             </table>
             <div class="saveDetails">
                 <button id="saveBtn">Save</button>
             </div>
             </div>
         </div>
+       
         <form method="">
             <fieldset>
                 <legend>Rating Legend:</legend>
@@ -80,34 +94,9 @@
                 <label for="rating5">5 = Strongly Agree</label>
             </fieldset>
         </form>
-        <table class="list">
-            <tr>
-                <th>Category</th>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-            </tr>
-            <tr>
-                <td>Question 1asdasdasdadas</td>
-                <td>
-                    <input type="radio" name="optradio1" value="1">
-                </td>
-                <td>
-                    <input type="radio" name="optradio1" value="2">
-                </td>
-                <td>
-                    <input type="radio" name="optradio1" value="3">
-                </td>
-                <td>
-                    <input type="radio" name="optradio1" value="4">
-                </td>
-                <td>
-                    <input type="radio" name="optradio1" value="5">
-                </td>
-            </tr>
-        </table>
+      
+       <?php guidanceQuestionForm(); ?>
+     
     </div>
     <script type="text/javascript" src="../scriptfiles/manageForm.js"></script>
 </body>

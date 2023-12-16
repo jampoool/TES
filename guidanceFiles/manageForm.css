@@ -19,7 +19,7 @@ body {
     margin-top: 20px;
     width: 95%;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
 }
 
@@ -63,7 +63,7 @@ body {
     outline: none;
     background: #1877F2;
     color: #FFFFFF;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     margin-left: 250px;
 }
@@ -204,8 +204,9 @@ table {
 
 table, th, td {
     border: 1px solid black;
-    padding: 10px;
+    padding: 5px;
     width: 50%;
+    font-size: 13px;
     margin-top: 20px;  
 }
 

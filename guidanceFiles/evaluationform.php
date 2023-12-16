@@ -57,7 +57,7 @@
                   <td>Sample Answer</td>
                   <td>
                     <div class="manage-form">
-                      <input onclick="" type="submit" class="manageBtn" name="manageBtn" value="Manage">
+                      <input onclick="manageForm()" type="submit" class="manageBtn" name="manageBtn" value="Manage">
                     </div>
                   </td>
               </tr>

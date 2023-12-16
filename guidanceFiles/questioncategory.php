@@ -52,7 +52,7 @@ guidanceCategoryFunction();
                     </tr>
                 </thead>
                 <tbody>
-                    <?php   get_category_Records(); ?>
+                    <?php  get_category_Records(); ?>
             </table>
         </div>
     <script type="text/javascript" src="../scriptfiles/questionCategory.js"></script>

@@ -35,18 +35,18 @@
         <li>
             <a href="#">
                 <i class="fi fi-rr-form"></i>
-                <span onclick="evaluationformFunction()">Manage Evaluation Form</span>
+                <span onclick="questionnaireFunction()">Manage Questionnaire</span>
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="fi fi-rr-form"></i>
+                <i class="fi fi-rr-file-medical-alt"></i>
                 <span onclick="evaluationreportFunction()">Manage Evaluation Report</span>
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="fi fi-rr-form"></i>
+                <i class="fi fi-rr-calendar-lines-pen"></i>
                 <span onclick="academicYear()">Manage Academic Year</span>
             </a>
         </li>

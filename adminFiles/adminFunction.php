@@ -23,10 +23,10 @@
                 <tr>
                   <form method="POST">
                     <?php if($adminEdit == $rows['adminID']){ ?>
-                    <td><input type="text" name="adminEditID" value="<?php echo $rows[0] ?>"> </td>
-                    <td><input type="text" name="adminEditUsername" value="<?php echo $rows[1] ?>"> </td>
-                    <td><input type="text" name="adminEditPassword" value="<?php echo $rows[2] ?>"> </td>
-                    <td><input type="submit" name="saveDetails"  value="Save"></td>
+                    <td><input type="text" name="adminEditID" id="adminEditID" value="<?php echo $rows[0] ?>"> </td>
+                    <td><input type="text" name="adminEditUsername" id="adminEditUsername" value="<?php echo $rows[1] ?>"> </td>
+                    <td><input type="text" name="adminEditPassword" id="adminEditPassword" value="<?php echo $rows[2] ?>"> </td>
+                    <td><input type="submit" name="saveDetails" id="savebtn" value="Save"></td>
                     <?php } 
                     else{ ?>
                     <td><?php echo $rows['adminID']; ?></td>
@@ -127,12 +127,12 @@
                 <tr>
                   <form method="POST">
                     <?php if($guidanceEdit == $rows['guidance_ID']){ ?>
-                    <td><input type="text" name="guidanceEditID" value="<?php echo $rows[0] ?>"> </td>
-                    <td><input type="text" name="guidanceEditfname" value="<?php echo $rows[2] ?>"> </td>
-                    <td><input type="text" name="guidanceEditlname" value="<?php echo $rows[3] ?>"> </td>
-                    <td><input type="text" name="guidanceEditEmail" value="<?php echo $rows[4] ?>"> </td>
-                    <td><input type="text" name="passwordEditPass" value="<?php echo $rows[5] ?>"> </td>
-                    <td><input type="submit" name="saveDetails"  value="Save"></td>
+                    <td><input type="text" name="guidanceEditID" id="guidanceEditID" value="<?php echo $rows[0] ?>"> </td>
+                    <td><input type="text" name="guidanceEditfname" id="guidanceEditfname" value="<?php echo $rows[2] ?>"> </td>
+                    <td><input type="text" name="guidanceEditlname" id="guidanceEditlname" value="<?php echo $rows[3] ?>"> </td>
+                    <td><input type="text" name="guidanceEditEmail" id="guidanceEditEmail" value="<?php echo $rows[4] ?>"> </td>
+                    <td><input type="text" name="passwordEditPass" id="passwordEditPass" value="<?php echo $rows[5] ?>"> </td>
+                    <td><input type="submit" name="saveDetails" id="savebtn"  value="Save"></td>
                     <?php } 
                     else{ ?>
                     <td><?php echo $rows['guidance_ID']; ?></td>
@@ -300,11 +300,11 @@
             <tr>
             <form method="POST">
             <?php if($teacherEdit == $rows[0]){ ?>
-                <td><input type="text" name="teacherEditID" value="<?php echo $rows['teacher_ID'] ?>"> </td>
-                <td><input type="text" name="teacherEditfname" value="<?php echo $rows['T_fname'] ?>"> </td>
-                <td><input type="text" name="teacherEditlname" value="<?php echo $rows['T_lname'] ?>"> </td>
-                <td><input type="text" name="teacherEditEmail" value="<?php echo $rows['T_emailAdd'] ?>"> </td>
-                <td><input type="text" name="teacherEditPass" value="<?php echo $rows['password'] ?>"> </td>
+                <td><input type="text" name="teacherEditID" id="teacherEditID" value="<?php echo $rows['teacher_ID'] ?>"> </td>
+                <td><input type="text" name="teacherEditfname" id="teacherEditfname" value="<?php echo $rows['T_fname'] ?>"> </td>
+                <td><input type="text" name="teacherEditlname" id="teacherEditlname" value="<?php echo $rows['T_lname'] ?>"> </td>
+                <td><input type="text" name="teacherEditEmail" id="teacherEditEmail" value="<?php echo $rows['T_emailAdd'] ?>"> </td>
+                <td><input type="text" name="teacherEditPass" id="teacherEditPass" value="<?php echo $rows['password'] ?>"> </td>
                 <td><input type="submit" name="saveDetails" id="saveBtn"  value="Save"></td>
                 <?php } 
                 else{ ?>
@@ -462,10 +462,10 @@
             <tr>
             <form method="POST">
             <?php if($subjectEdit == $rows[0]){ ?>
-                <td><input type="text" name="subjectEditID" value="<?php echo $rows[0] ?>"> </td>
-                <td><input type="text" name="subjectEditCode" value="<?php echo $rows[2] ?>"> </td>
-                <td><input type="text" name="subjectEditName" value="<?php echo $rows[3] ?>"> </td>
-                <td><input type="submit" name="saveDetails"  value="Save"></td>
+                <td><input type="text" name="subjectEditID" id="subjectEditID" value="<?php echo $rows[0] ?>"> </td>
+                <td><input type="text" name="subjectEditCode" id="subjectEditCode" value="<?php echo $rows[2] ?>"> </td>
+                <td><input type="text" name="subjectEditName" id="subjectEditName" value="<?php echo $rows[3] ?>"> </td>
+                <td><input type="submit" name="saveDetails" id="savebtn" value="Save"></td>
                 <?php } 
                 else{ ?>
                 <td><?php echo $rows['subject_ID']; ?></td>
@@ -619,11 +619,11 @@
             <form method="POST">
             <?php if($studentEdit == $rows[0]){ ?>
                 
-                <td><input type="text" name="studentEditID" value="<?php echo $rows['studentID'] ?>"> </td>
-                <td><input type="text" name="studentEditfname" value="<?php echo $rows['stud_fname'] ?>"> </td>
-                <td><input type="text" name="studentEditlname" value="<?php echo $rows['stud_lname'] ?>"> </td>
-                <td><input type="text" name="studentEditEmail" value="<?php echo $rows['stud_emailAdd'] ?>"> </td>
-                <td><input type="text" name="studentEditPass" value="<?php echo $rows['password'] ?>"> </td>
+                <td><input type="text" name="studentEditID" id="studentEditID" value="<?php echo $rows['studentID'] ?>"> </td>
+                <td><input type="text" name="studentEditfname" id="studentEditfname" value="<?php echo $rows['stud_fname'] ?>"> </td>
+                <td><input type="text" name="studentEditlname" id="studentEditlname" value="<?php echo $rows['stud_lname'] ?>"> </td>
+                <td><input type="text" name="studentEditEmail" id="studentEditEmail" value="<?php echo $rows['stud_emailAdd'] ?>"> </td>
+                <td><input type="text" name="studentEditPass" id="studentEditPass" value="<?php echo $rows['password'] ?>"> </td>
                 <td><input type="submit" name="saveDetails" id="saveBtn"  value="Save"></td>
                 <?php } 
                 else{ ?>
@@ -869,7 +869,7 @@ if (isset($_GET['edit'])) {
             ?>
              <script type="text/javascript" src="../scriptFiles/classAdmin.js">editPopup();</script>
             <div class="left">
-                  <button id="editbtn">Update Class</button>
+                  <button id="updatebtn">Update Class</button>
             </div>
 
             <div class="popup">
@@ -1101,22 +1101,36 @@ if (isset($_GET['edit'])) {
             ?>
              <script type="text/javascript" src="../scriptFiles/studentClasses.js">editPopup();</script>
             <div class="left">
-                  <button id="editbtn">Update Classes</button>
+                  <button id="updatebtn">Update Classes</button>
             </div>
+            <!-- Include jQuery -->
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+            <!-- Include Select2 CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+
+            <!-- Include Select2 JS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
             <div class="popup">
                <div class="close-btn">&times;</div>
                     <div class="form">
                     <form method="POST">
                     <h2>Update Class Data</h2>
                     <select name="classEditID" id="classSelect">
-                    <option value="value" disabled selected>Select Class</option>
-                    <?php
-                        $sql =mysqli_query($con,"SELECT * FROM tblclass");
-                        while($row1= $sql->fetch_assoc()){?>
-                    <option value="<?php echo $row1['classID']; ?>" ><?php echo $row1['classCode'];?></option>
-                        <?php } ?>
+                        <option value="value" disabled selected>Select Class</option>
+                        <?php
+                            $sql = mysqli_query($con, "SELECT * FROM tblclass");
+                            while ($row1 = $sql->fetch_assoc()) { ?>
+                                <option value="<?php echo $row1['classID']; ?>"><?php echo $row1['classCode']; ?></option>
+                            <?php } ?>
                     </select>
+
+                    <!-- Initialize Select2 -->
+                    <script>
+                        $(document).ready(function () {
+                            $('#classSelect').select2();
+                        });
+                    </script>
                     <select name="studentEditID" id="studentSelect">
                     <option value="value" disabled selected >Select Student</option>
                      <?php
@@ -1136,7 +1150,14 @@ if (isset($_GET['edit'])) {
 
     if (!$classFound) {
         ?>
-         
+           <!-- Include jQuery -->
+           <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+            <!-- Include Select2 CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+
+            <!-- Include Select2 JS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
         <div class="popup">
         <div class="close-btn">&times;</div>
         <div class="form">
@@ -1147,14 +1168,21 @@ if (isset($_GET['edit'])) {
                     <input type="file" class="uploadfile" name="file" accept=".csv">
                     <button type="submit" class="import" name="import">Import</button>
                  </div>
-                <select name="classID" id="classSelect">
-                    <option value="value" disabled selected>Select Class</option>
-                    <?php
-                        $sql =mysqli_query($con,"SELECT * FROM tblclass");
-                        while($row1= $sql->fetch_assoc()){?>
-                    <option value="<?php echo $row1['classID']; ?>" ><?php echo $row1['classCode'];?></option>
-                        <?php } ?>
-                </select>
+                 <select name="classID" id="classSelect">
+                        <option value="value" disabled selected>Select Class</option>
+                        <?php
+                            $sql = mysqli_query($con, "SELECT * FROM tblclass");
+                            while ($row1 = $sql->fetch_assoc()) { ?>
+                                <option value="<?php echo $row1['classID']; ?>"><?php echo $row1['classCode']; ?></option>
+                            <?php } ?>
+                    </select>
+
+                    <!-- Initialize Select2 -->
+                    <script>
+                        $(document).ready(function () {
+                            $('#classSelect').select2();
+                        });
+                    </script>
                 <select name="studentID" id="studentSelect">
                     <option value="value" disabled selected >Select Student</option>
                      <?php
@@ -1172,19 +1200,39 @@ if (isset($_GET['edit'])) {
     <?php }
 } else {
     ?>
-    <div class="popup">
-    <div class="close-btn">&times;</div>
-        <div class="form">
+     <!-- Include jQuery -->
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+            <!-- Include Select2 CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+
+            <!-- Include Select2 JS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+            <div class="popup">
+            <div class="close-btn">&times;</div>
+            <div class="form">
             <form method="POST">
-                <h2>Class</h2>
+                <h2>Student Classes</h2>
+                <div class="form-element">
+                    <label for="file" class="choose">Choose CSV File</label>
+                    <input type="file" class="uploadfile" name="file" accept=".csv">
+                    <button type="submit" class="import" name="import">Import</button>
+                </div>
                 <select name="classID" id="classSelect">
-                    <option value="value" disabled selected>Select Class</option>
-                    <?php
-                        $sql =mysqli_query($con,"SELECT * FROM tblclass");
-                        while($row1= $sql->fetch_assoc()){?>
-                    <option value="<?php echo $row1['classID']; ?>" ><?php echo $row1['classCode'];?></option>
-                        <?php } ?>
-                </select>
+                        <option value="value" disabled selected>Select Class</option>
+                        <?php
+                            $sql = mysqli_query($con, "SELECT * FROM tblclass");
+                            while ($row1 = $sql->fetch_assoc()) { ?>
+                                <option value="<?php echo $row1['classID']; ?>"><?php echo $row1['classCode']; ?></option>
+                            <?php } ?>
+                    </select>
+
+                    <!-- Initialize Select2 -->
+                    <script>
+                        $(document).ready(function () {
+                            $('#classSelect').select2();
+                        });
+                    </script>
                 <select name="studentID" id="studentSelect">
                     <option value="value" disabled selected >Select Student</option>
                      <?php

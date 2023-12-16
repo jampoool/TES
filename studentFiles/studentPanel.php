@@ -27,7 +27,7 @@
         <li>
             <a href="#">
                 <i class="fi fi-ss-users-alt"></i>
-                <span onclick="">Fill Out Evaluation Form</span>
+                <span onclick="fillOutFormFunction()">Fill Out Evaluation Form</span>
             </a>
         </li>
         <li class="logout">

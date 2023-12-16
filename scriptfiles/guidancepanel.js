@@ -6,8 +6,8 @@ function questioncategoryFunction() {
     document.getElementById("myframe").src = "../guidanceFiles/questioncategory.php";
 }
 
-function evaluationformFunction() {
-    document.getElementById("myframe").src = "../guidanceFiles/evaluationform.php";
+function questionnaireFunction() {
+    document.getElementById("myframe").src = "../guidanceFiles/manageForm.php";
 }
 
 function evaluationreportFunction() {

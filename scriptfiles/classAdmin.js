@@ -17,7 +17,7 @@ function setupPopup() {
 document.addEventListener("DOMContentLoaded", setupPopup);
 
 function editPopup(){
-  document.querySelector("#editbtn").addEventListener("click", function(event) {
+  document.querySelector("#updatebtn").addEventListener("click", function(event) {
 
     document.querySelector(".popup").classList.add("active");
 

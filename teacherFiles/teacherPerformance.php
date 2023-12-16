@@ -58,19 +58,19 @@
             <tr>
                 <td>Question 1</td>
                 <td>
-                    <input type="radio" name="optradio1" value="1">
+                    <label for="optradio1" value="1">20%</label>
                 </td>
                 <td>
-                    <input type="radio" name="optradio1" value="2">
+                    <label for="optradio1" value="2">40%</label>
                 </td>
                 <td>
-                    <input type="radio" name="optradio1" value="3">
+                    <label for="optradio1" value="3">60%</label>
                 </td>
                 <td>
-                    <input type="radio" name="optradio1" value="4">
+                    <label for="optradio1" value="4">80%</label>
                 </td>
                 <td>
-                    <input type="radio" name="optradio1" value="5">
+                    <label for="optradio1" value="5">100%</label>
                 </td>
             </tr>
         </table>

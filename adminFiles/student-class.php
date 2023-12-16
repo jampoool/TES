@@ -17,6 +17,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <link href= "student-class.css" rel= "stylesheet">
     <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    
     <title>Admin - Student Class</title>
 </head>
 <body>

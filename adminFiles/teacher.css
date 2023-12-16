@@ -174,26 +174,113 @@ td {
  
 }
 
+#teacherEditID {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+#teacherEditfname {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+#teacherEditlname {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+#teacherEditEmail {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+#teacherEditPass {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    z-index: 1;
+}
+
 #editbtn {
     text-decoration: none;
-    background: #1877F2;
-    color: #FFFFFF;
+    background: #FFFFFF;
+    color: #000000;
     padding: 5px;
     border-radius: 5px;
     margin-right: 10px;
+    border: 1px solid #000000;
 }
+
+.editbtn:active {
+    transform: scale(0.96);
+}
+
+#editbtn:hover{
+    background: #1877F2;
+    color: #FFFFFF;
+    border: 1px solid #000000;
+}
+
 #deletebtn {
     text-decoration: none;
-    background: #DC3545;
-    color: #FFFFFF;
+    background: #FFFFFF;
+    color: #000000;
     padding: 5px;
     border-radius: 5px;
+    border: 1px solid #000000;
 }
+
+.deletebtn:active {
+    transform: scale(0.96);
+}
+
+#deletebtn:hover{
+    background: #DC3545;
+    color: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+#saveBtn {
+    text-decoration: none;
+    background: #FFFFFF;
+    color: #000000;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #000000;
+}
+
+.saveBtn:active {
+    transform: scale(0.96);
+}
+
 #saveBtn:hover{
-    background-color: rgb(12, 177, 26);
-    color: white;
-}
-#saveBtn{
-    width: 70px;
-    height: 20px;
+    background: #16784A;
+    color: #FFFFFF;
+    border: 1px solid #000000;
 }

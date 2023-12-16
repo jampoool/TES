@@ -1,3 +1,8 @@
+<?php
+    include "../connect.php";
+    include "guidanceFunction.php";
+    guidanceCrud();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +11,16 @@
     <script type="text/javascript" src="../dist/js/jquery.js"></script>
     <script type="text/javascript" src="../scriptfiles/guidancepanel.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <link href= "https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel= "stylesheet">
+    
     <link href= "academic.css" rel= "stylesheet">
+    
     <title>Guidance - Academic Year</title>
 </head>
 <body>
+
     <div class="evaluation-form">
         <h2>Academic Year</h2>
         <span>Home / Manage Academic Year</span>
@@ -25,10 +34,10 @@
           <form method="POST">
             <h2>Academic Year</h2>
             <div class="form-element">
-                <input type="text" id="academicYear" placeholder="Academic Year" name="">
+                <input type="text" id="academicYear" placeholder="Academic Year" name="year">
             </div>
             <div class="form-element">
-                <input type="text" id="semester" placeholder="Semester" name="">
+                <input type="text" id="semester" placeholder="Semester" name="semester">
             </div>
             <div class="form-element">
                 <button id="add-btn" name="addbtn">Add</button>
@@ -49,24 +58,12 @@
                 </tr>
             </thead>
             <tbody>
-              <tr>
-                  <td>2023 - 2024</td>
-                  <td>1st Semester</td>
-                  <td>
-                    <section>
-                        <button class="showModal">No</button>
-                        <span class="overlay"></span>
-                    </section>
-                  </td>
-                  <td>Not yet started</td>
-                  <td>
-                    <a name="edit" id="editbtn" href="?edit=<?php echo $rows[''];?>">Edit</a>
-                    <a id="deletebtn" href="#" onclick="del(<?php echo $rows[''];?>)">Delete</a>
-                  </td>
-              </tr>
+            <?php get_academic_Records(); ?>
             </tbody>
         </table>
+       
     <script type="text/javascript" src="../scriptfiles/academic.js"></script>
-  </div>
+    </div>
+    
 </body>
 </html>
