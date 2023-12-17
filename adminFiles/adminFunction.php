@@ -658,7 +658,7 @@
             $studentEmail = $_POST['emailAdd'];
             $pass = $_POST['pass'];
             $sql = "INSERT INTO tblstudent (studentID, adminID, stud_fname, stud_lname, stud_emailAdd, password, status, date_created, date_updated)
-            VALUES ('$studentID', '$adminId', '$studentFn', '$studentLn', '$studentEmail', ' $pass', '0', current_timestamp(), NULL);";
+            VALUES ('$studentID', '$adminId', '$studentFn', '$studentLn', '$studentEmail', '$pass', '0', current_timestamp(), NULL);";
             $result = mysqli_query($con, $sql);
     
             }

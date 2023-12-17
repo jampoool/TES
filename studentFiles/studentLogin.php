@@ -1,3 +1,35 @@
+<?php 
+    include "../connect.php";
+    session_start();
+
+    if (isset($_POST['loginBtn'])) {
+    $username = $_POST['emailAddress'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT studentID FROM tblstudent WHERE stud_emailAdd = ? AND password = ?";
+    
+    $stmt = mysqli_prepare($con, $sql);
+
+    mysqli_stmt_bind_param($stmt,'ss', $username, $password);
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    $rows = mysqli_fetch_assoc($result);
+
+    if ($rows) {
+        // Admin authentication successful
+        $_SESSION['studentID'] = $rows['studentID'];
+        header("Location: http://localhost/TES/studentFiles/studentPanel.php");
+        exit();
+    } else {
+        // Admin authentication failed
+        echo "Invalid username or password";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
