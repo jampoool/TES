@@ -63,48 +63,69 @@ body {
 }
 
 .evaluation-form {
-    background: #ffffff;
-    color: #000000;
-    margin-right: 33px;
-    margin-top: 33px;
+    background: #f8f8f8;
+    color: #333;
+    margin: 33px auto;
     width: 70%;
-    height: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
-    float: right;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 33px;
 }
 
 .evaluation-form h3 {
     text-align: center;
-    border-bottom: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }
 
 fieldset {
-    background-color: #C8CACE;
+    background-color: #e1e1e1;
     margin-top: 20px;
-    display: block;
-    margin-left: 2px;
-    margin-right: 2px;
-    padding-top: 0.35em;
-    padding-bottom: 0.625em;
-    padding-left: 0.75em;
-    padding-right: 0.75em;
-    border: 2px groove (internal value);
-}
-  
-legend {
-    background-color: #272829;
-    color: white;
-    padding: 5px 10px;
-}
-  
-input {
-    margin: 5px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
 }
 
-table, th, td {
-    border: 1px solid black;
-    padding: 10px;
-    width: 100%;
+legend {
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
+
+input {
+    margin: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #b3b2b2;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+.submitBtn {
+    width: 100px;
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+

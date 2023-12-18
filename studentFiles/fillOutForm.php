@@ -1,5 +1,6 @@
 <?php
     include "../connect.php";
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,25 +39,93 @@
     <div class="list" id="class-list">
     
     </div>
-    <div class="right">
-        <h3>Evaluation Report</h3>
-        <form method="">
-            <fieldset>
-                <legend>Rating Legend:</legend>
-                <label for="rating1">1 = Strongly Disagree</label>
-                <label for="rating2">2 = Disagree</label>
-                <label for="rating3">3 = Uncertain</label>
-                <label for="rating4">4 = Agree</label>
-                <label for="rating5">5 = Strongly Agree</label>
-            </fieldset>
-        </form>
-        <center>
-        <?php  include "studentFunction.php";
-                   studentEvaluationForm(); ?>
-    </div>
-  
+
+    <div class="evaluation-form">
+        <h3>Evaluation Form</h3>
+        <div class="teacherinfo">
+            <label for="faculty" class="text-left"><b>Faculty: </b><span id="faculty"></span></label><br>
+            <label for="class" class="text-left"><b>Class:</b> <span id="class"></span></label><br>
+            <label for="academicYear" class="text-left"><b>Academic Year:</b> <span id="academicYear"></span></label><br>
+            <label for="subject" class="text-left"><b>Subject:</b> <span id="subject"></span></label>
+        </div>
+        <form method="POST">
+    <fieldset>
+        <legend>Rating Legend:</legend>
+        <label for="rating1">1 = Strongly Disagree</label>
+        <label for="rating2">2 = Disagree</label>
+        <label for="rating3">3 = Uncertain</label>
+        <label for="rating4">4 = Agree</label>
+        <label for="rating5">5 = Strongly Agree</label>
+    </fieldset>
+
+    <table>
+        <?php
+        $query = "SELECT
+                    tblcategory.categoryName,
+                    tblquestion.questionID,
+                    tblquestion.description
+                FROM
+                    tblquestion
+                INNER JOIN tblcategory ON tblcategory.categoryID = tblquestion.categoryID";
+        $sqlquery = mysqli_query($con, $query);
+
+        $currentCategory = null; // Track the current category
+
+        while ($rows = mysqli_fetch_array($sqlquery)) {
+            $category = $rows['categoryName'];
+            $questionID = $rows['questionID'];
+            $description = $rows['description'];
+
+            // Check if the category has changed
+            if ($category != $currentCategory) {
+                // Output the category row for each change
+                echo '<tr>
+                        <td>' . $category . '</td>
+                      </tr>';
+          
+                echo '<tr>
+                        <th>Question</th>
+                        <th>Rating</th>
+                    </tr>';
+            }
+
+            // Display the question in the current category with a radio button
+            echo '<tr>
+                    <td>' . $description . '</td>
+                    <td>';
+
+            // Radio buttons with a divider
+            echo '<input type="radio" name="rating[' . $questionID . ']" value="1"> 1';
+            echo '<div style="border-left: 1px solid #000;  margin: 0 ;"></div>';
+            echo '<input type="radio" name="rating[' . $questionID . ']" value="2"> 2';
+            echo '<div style="border-left: 1px solid #000;  margin: 0 ;"></div>';
+            echo '<input type="radio" name="rating[' . $questionID . ']" value="3"> 3';
+            echo '<div style="border-left: 1px solid #000;  margin: 0 ;"></div>';
+            echo '<input type="radio" name="rating[' . $questionID . ']" value="4"> 4';
+            echo '<div style="border-left: 1px solid #000;  margin: 0 ;"></div>';
+            echo '<input type="radio" name="rating[' . $questionID . ']" value="5"> 5';
+
+            echo '</td>
+                </tr>';
+            
+            $currentCategory = $category;
+        }
+
+       
+        if ($currentCategory !== null) {
+            echo '</table>';
+        }
+
+        echo"<br>";
+        echo "<input type='submit' class='submitBtn' name='submit' value='Submit'>";
+       
+  echo"  </form>";
+     
+    ?>
+</div>
+
     <script>
-    $(document).ready(function() {
+     $(document).ready(function() {
         $('#teacher').on('change', function() {
             var teacherId = $(this).val();
 
@@ -70,14 +139,48 @@
                     $('.list').show();
                 },
                 error: function(xhr, status, error) {
-                    console.error('Error fetching classes:', error);
+                    console.error('Error:', error);
                 }
             });
         });
+
+        // Event delegation for dynamically loaded .class-link elements
+            $('#class-list').on('click', '.class-link', function(e) {
+                e.preventDefault();
+
+              
+                var teacherName = $(this).data('teacher-name'); // Corrected attribute name
+                var classCode = $(this).data('class-code');
+                var subjectName = $(this).data('subject-name');
+                // Note: There is no data attribute 'academic-year' in the HTML, so remove it from this line.
+
+                // Update teacher information
+                
+                $('#faculty').text(teacherName);
+                $('#class').text(classCode);
+                $('#subject').text(subjectName);
+              
+                
+                // Additional logic for updating faculty information can be added here.
+            });
     });
 
 </script>
+<?php
+   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check if the 'rating' array is set in the $_POST data
+    if (isset($_POST['rating']) && is_array($_POST['rating'])) {
+        foreach ($_POST['rating'] as $questionID => $rating) {
+            // Process each question ID and its corresponding rating
+            echo "Question ID: $questionID, Rating: $rating<br>";
+            // You can perform database operations or other logic with the question ID and rating here
+        }
+    } else {
+        echo "No ratings submitted.";
+    }
+}
 
+?>
 </div>
 </body>
 </html>
