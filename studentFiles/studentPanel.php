@@ -9,33 +9,33 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" integrity="sha512-PvB3Q4vTvWD/9aiiELYI3uebup/4mtou3Mc/uGudC/Zl+C9BdKUkAI+5jORfA+fvLK4DpzC5VyEN7P2kK43hjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script type="text/javascript" src="../dist/js/jquery.js"></script>
-    <script type="text/javascript" src="../scriptfiles/studentPanel.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href= "studentPanel.css" rel= "stylesheet">
     <title>TES - Guidance Panel</title>
 </head>
 <body>
     <div class="sidebar">
-    <div class="logo"></div>
-    <ul class="menu">
-        <li>
-            <a href="#">
-                <i class="fi fi-rs-dashboard"></i>
-                <span onclick="studentDashboardFunction()">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fi fi-ss-users-alt"></i>
-                <span onclick="fillOutFormFunction()">Fill Out Evaluation Form</span>
-            </a>
-        </li>
-        <li class="logout">
-            <a href="logout.php">
-                <i class="fi fi-br-exit"></i>
-                <span>Log out</span>
-            </a>
-        </li>
+        <div class="logo"></div>
+        <ul class="menu">
+            <li>
+                <a href="#">
+                    <i class="fi fi-rs-dashboard"></i>
+                    <span onclick="studentDashboardFunction()">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fi fi-ss-users-alt"></i>
+                    <span onclick="fillOutFormFunction()">Fill Out Evaluation Form</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="logout.php">
+                    <i class="fi fi-br-exit"></i>
+                    <span>Log out</span>
+                </a>
+            </li>
+        </ul>
     </div>
     <div class="header-output">
         <div class="header">
@@ -43,18 +43,17 @@
                 <h4>Teacher Evaluation System</h4>
             </div>
             <div class="dropdown">
-               
                 <button class="dropbtn" value="username">Student</button>
-               
                 <div class="dropdown-content">
                     <a href="#">Account Settings</a>
                 </div>
             </div>
-    
         </div>
-         <div class="output">
-             <iframe id="myframe" src="../studentFiles/studentDashboard.php"></iframe>
-         </div>
+        <div class="output">
+            <iframe id="myframe" src="../studentFiles/studentDashboard.php"></iframe>
+        </div>
     </div>
+    <script type="text/javascript" src="../scriptfiles/studentPanel.js"></script>
+   
 </body>
 </html>

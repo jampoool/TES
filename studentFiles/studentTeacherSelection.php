@@ -14,7 +14,7 @@ $result = $con->query($sql);
 if ($result->num_rows > 0) { 
     while ($row = $result->fetch_assoc()) { ?>
     <form method="POST">
-       <a name="link"  href="?classID=<?php echo $row['classID']?>" class="class-link" data-class-id="<?php echo $row['classID'] ?>" data-class-code="<?php echo $row['classCode'] ?>" data-subject-name="<?php echo $row['subName'] ?>" data-teacher-name="<?php echo $row['T_fname'].' '.$row['T_lname'] ?>" > <?php echo $row['classCode'] ?> -- <?php echo $row['subName'] ?></a><br>
+       <a name="link"  href="#" class="class-link" data-class-id="<?php echo $row['classID'] ?>" data-class-code="<?php echo $row['classCode'] ?>" data-subject-name="<?php echo $row['subName'] ?>" data-teacher-name="<?php echo $row['T_fname'].' '.$row['T_lname'] ?>" > <?php echo $row['classCode'] ?> -- <?php echo $row['subName'] ?></a><br>
        </form>
     <?php }
 } else { ?> 

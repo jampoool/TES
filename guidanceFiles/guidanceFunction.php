@@ -268,6 +268,7 @@
         session_start();
     
         if (isset($_POST['addbtn'])) {
+            
             if (!isset($_SESSION['defaultAcademicId'])) {
                 header('Location: http://localhost/TES/guidanceFiles/index.php');
                 exit();
