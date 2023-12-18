@@ -3,7 +3,6 @@
 include "../connect.php";
 $teacherId = $_POST['teacher_id'];  // Correct the key name
 
-// Assuming tblteacher has a field named 'teacher_ID' and tblclasses has a field named 'teacher_ID'
 $sql = "SELECT tblclass.classCode, tblsubject.subName
         FROM tblclass
         JOIN tblsubject ON tblclass.subID = tblsubject.subject_ID
