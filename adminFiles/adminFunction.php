@@ -44,23 +44,7 @@
 <?php 
     function adminFunction(){
         include "../connect.php";
-        if(isset($_POST['addbtn'])){
             
-    
-            if (!isset($_SESSION['adminID'])) {
-                header('Location: http://localhost/TES/adminFiles/admin.php');
-                exit();
-            }        
-        
-    
-            $adminID = $_POST['adminID'];
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $sql = "INSERT INTO tbladmin (adminID, username, adminpassword, status, date_created, date_updated)
-            VALUES ('$adminID', '$username', '$password', '0', current_timestamp(), NULL);";
-            mysqli_query($con, $sql);
-    
-            }
     
             if(isset($_POST['saveDetails']))
             {
@@ -152,29 +136,7 @@
 <?php 
     function guidanceFunction(){
         include "../connect.php";
-        if(isset($_POST['addbtn'])){
-            
-    
-            if (!isset($_SESSION['adminID'])) {
-                header('Location: http://localhost/TES/adminFiles/guidance.php');
-                exit();
-            }
-    
-         
-            $adminId = $_SESSION['adminID'];
-    
-    
-            $guidanceID = $_POST['g_ID'];
-        
-            $firstname = $_POST['fname'];
-            $lastname = $_POST['lname'];
-            $email = $_POST['email'];
-            $pass = $_POST['pass'];
-            $sql = "INSERT INTO tblguidancestaff (guidance_ID, adminID, G_fname, G_lname, G_emailAdd, G_password, status, date_created, date_updated)
-            VALUES ('$guidanceID', '$adminId', '$firstname', '$lastname', '$email', '$pass', '0', current_timestamp(), NULL);";
-            mysqli_query($con, $sql);
-    
-            }
+       
     
             if(isset($_POST['saveDetails']))
             {
@@ -325,24 +287,7 @@
 <?php 
     function teacherFunction(){
         include "../connect.php";
-        if(isset($_POST['addbtn'])){
-        if (!isset($_SESSION['adminID'])) {
-
-            header('Location: http://localhost/TES/adminFiles/teacher.php');
-            exit();
-        }
-
-        $adminId = $_SESSION['adminID'];
-        $teacherID = $_POST['t_ID'];
-        $teacherFn = $_POST['fname'];
-        $teacherLn = $_POST['lname'];
-        $teacherEmail = $_POST['emailAdd'];
-        $pass = $_POST['pass'];
-        $sql = "INSERT INTO tblteacher (teacher_ID, adminID, T_fname, T_lname, T_emailAdd, password, status, date_created, date_updated)
-        VALUES ('$teacherID', '$adminId', '$teacherFn', '$teacherLn', '$teacherEmail', ' $pass', '0', current_timestamp(), NULL);";
-        $result = mysqli_query($con, $sql);
-
-        }
+       
 
     
         if(isset($_POST['saveDetails']))
@@ -642,27 +587,6 @@
     }
     function studentFunction(){
         include "../connect.php";
-        if(isset($_POST['addbtn'])){
-            
-    
-            if (!isset($_SESSION['adminID'])) {
-    
-                header('Location: http://localhost/TES/adminFiles/student.php');
-                exit();
-            }
-    
-            $adminId = $_SESSION['adminID'];
-            $studentID = $_POST['stud_ID'];
-            $studentFn = $_POST['fname'];
-            $studentLn = $_POST['lname'];
-            $studentEmail = $_POST['emailAdd'];
-            $pass = $_POST['pass'];
-            $sql = "INSERT INTO tblstudent (studentID, adminID, stud_fname, stud_lname, stud_emailAdd, password, status, date_created, date_updated)
-            VALUES ('$studentID', '$adminId', '$studentFn', '$studentLn', '$studentEmail', '$pass', '0', current_timestamp(), NULL);";
-            $result = mysqli_query($con, $sql);
-    
-            }
-    
         
             if(isset($_POST['saveDetails']))
             {

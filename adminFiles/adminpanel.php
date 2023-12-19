@@ -1,38 +1,44 @@
-<?php 
+<?php
 include "../connect.php";
 session_start();
 if (!isset($_SESSION['adminID'])) {
     header('Location: http://localhost/TES/adminFiles/adminlogin.php');
     exit();
-}     
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" integrity="sha512-PvB3Q4vTvWD/9aiiELYI3uebup/4mtou3Mc/uGudC/Zl+C9BdKUkAI+5jORfA+fvLK4DpzC5VyEN7P2kK43hjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>TES - Admin Panel</title>
+
+    <!-- External Stylesheets -->
+    <link href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-straight/css/uicons-regular-straight.css" rel="stylesheet">
+    <link href="https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-straight/css/uicons-solid-straight.css" rel="stylesheet">
+    <link href="https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css" rel="stylesheet">
+    <link href="https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css" rel="stylesheet">
+    <link href="https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-straight/css/uicons-bold-straight.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" integrity="sha512-PvB3Q4vTvWD/9aiiELYI3uebup/4mtou3Mc/uGudC/Zl+C9BdKUkAI+5jORfA+fvLK4DpzC5VyEN7P2kK43hjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- External Scripts -->
     <script type="text/javascript" src="../dist/js/jquery.js"></script>
     <script type="text/javascript" src="../scriptfiles/adminpanel.js"></script>
-    <link href= "adminpanel.css" rel= "stylesheet">
-    <title>TES - Admin Panel</title>
+
+    <!-- Internal Stylesheet -->
+    <link href="adminpanel.css" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
     <div class="logo"></div>
-    <ul class="menu">
-        <li>
-            <a href="#">
-                <i class="fi fi-rs-dashboard"></i>
-                <span onclick="dashboardFunction()">Dashboard</span>
-            </a>
-        </li>
-        <li>
+        <ul class="menu">
+            <li>
+                <a href="#">
+                    <i class="fi fi-rs-dashboard"></i>
+                    <span onclick="dashboardFunction()">Dashboard</span>
+                </a>
+            </li>
+            <li>
             <a href="#">
                 <i class="fi fi-ss-users-alt"></i>
                 <span onclick="adminFunction()">Manage Admin</span>
@@ -80,7 +86,9 @@ if (!isset($_SESSION['adminID'])) {
                 <span>Log out</span>
             </a>
         </li>
+        </ul>
     </div>
+    
     <div class="header-output">
         <div class="header">
             <div class="header-title">
@@ -100,9 +108,9 @@ if (!isset($_SESSION['adminID'])) {
             </div>
     
         </div>
-         <div class="output">
-             <iframe id="myframe" src="../adminFiles/dashboard.php"></iframe>
-         </div>
+        <div class="output">
+            <iframe id="myframe" src="../adminFiles/dashboard.php"></iframe>
+        </div>
     </div>
 </body>
 </html>

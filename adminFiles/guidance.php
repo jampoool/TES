@@ -2,6 +2,43 @@
     include "../connect.php";
     include "adminFunction.php";
     session_start();
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Check if the form fields are set and not empty
+        if (
+            isset($_POST['guidanceID']) &&
+            isset($_POST['firstname']) &&
+            isset($_POST['lastname']) &&
+            isset($_POST['username']) &&
+            isset($_POST['password'])
+        ) {
+            $adminId = $_SESSION['adminID'];
+    
+            $guidanceID = $_POST['guidanceID'];
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $email = $_POST['username'];
+            $pass = $_POST['password'];
+    
+            // Additional validation or processing can be done here
+    
+            $sql = "INSERT INTO tblguidancestaff (guidance_ID, adminID, G_fname, G_lname, G_emailAdd, G_password, status, date_created, date_updated)
+                    VALUES ('$guidanceID', '$adminId', '$firstname', '$lastname', '$email', '$pass', '0', current_timestamp(), NULL);";
+    
+            if (mysqli_query($con, $sql)) {
+                // Form submission was successful
+                error_log('Data inserted successfully');
+                echo 'success';
+            } else {
+                // Form submission failed
+                error_log('Error inserting data: ' . mysqli_error($con));
+                echo 'error';
+            }
+        } else {
+            // Handle case where not all required data is received
+            echo 'error';
+        }
+    }
+    
     guidanceFunction();
     importGuidanceRecords();
     if (!isset($_SESSION['adminID'])) {
@@ -13,13 +50,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../dist/js/jquery.js"></script>
+    <  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="../scriptfiles/adminpanel.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <link href= "guidance.css" rel= "stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="guidance.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../scriptfiles/guidanceAdmin.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     
     <title>Admin - Guidance</title>
 </head>
@@ -81,7 +121,6 @@
             get_Guidance_Records();
         ?>
         </table>
-    <script type="text/javascript" src="../scriptfiles/guidanceAdmin.js"></script>
 </body>
 </form>
 </html>

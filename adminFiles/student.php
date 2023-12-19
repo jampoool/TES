@@ -2,7 +2,47 @@
 include "../connect.php";
 include "adminFunction.php";
 session_start();
-studentFunction();      
+studentFunction();     
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if the form fields are set and not empty
+    if (
+        isset($_POST['studentID']) &&
+        isset($_POST['firstname']) &&
+        isset($_POST['lastname']) &&
+        isset($_POST['email']) &&
+        isset($_POST['password'])
+    ) {
+        if (!isset($_SESSION['adminID'])) {
+            echo 'error';
+            exit();
+        }
+
+        $adminId = $_SESSION['adminID'];
+        $studentID = $_POST['studentID'];
+        $studentFn = $_POST['firstname'];
+        $studentLn = $_POST['lastname'];
+        $studentEmail = $_POST['email'];
+        $pass = $_POST['password'];
+
+        // Additional validation or processing can be done here
+
+        $sql = "INSERT INTO tblstudent (studentID, adminID, stud_fname, stud_lname, stud_emailAdd, password, status, date_created, date_updated)
+                VALUES ('$studentID', '$adminId', '$studentFn', '$studentLn', '$studentEmail', '$pass', '0', current_timestamp(), NULL);";
+
+        if (mysqli_query($con, $sql)) {
+            // Form submission was successful
+            error_log('Data inserted successfully');
+            echo 'success';
+        } else {
+            // Form submission failed
+            error_log('Error inserting data: ' . mysqli_error($con));
+            echo 'error';
+        }
+    } else {
+        // Handle case where not all required data is received
+        echo 'error';
+    }
+}
 importStudentRecords(); 
 if (!isset($_SESSION['adminID'])) {
     header('Location: http://localhost/TES/adminFiles/adminlogin.php');
@@ -13,14 +53,20 @@ if (!isset($_SESSION['adminID'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../dist/js/jquery.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Student</title>
+    <link href="student.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="../scriptfiles/adminpanel.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <link href= "student.css" rel= "stylesheet">
-    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
-    <title>Admin - Student</title>
+    
+    <script type="text/javascript" src="../scriptfiles/studentAdmin.js"></script>
+</head>
+
 </head>
 <body>
     <div class="student">
@@ -41,19 +87,19 @@ if (!isset($_SESSION['adminID'])) {
                 <button type="submit" class="import" name="import">Import</button>
             </div>
             <div class="form-element">
-                <input type="text" placeholder="Student ID" id="studentID" name="stud_ID" required>
+                <input type="text" placeholder="Student ID" id="studentID" name="stud_ID" >
             </div>
             <div class="form-element">
-                <input type="text" placeholder="First Name" id="firstname" name="fname" required>
+                <input type="text" placeholder="First Name" id="firstname" name="fname" >
             </div>
             <div class="form-element">
-                <input type="text" placeholder="Last Name" id="lastname" name="lname" required>
+                <input type="text" placeholder="Last Name" id="lastname" name="lname" >
             </div>
             <div class="form-element">
-                <input type="text" placeholder="Email Address" id="email" name="emailAdd" required>
+                <input type="text" placeholder="Email Address" id="email" name="emailAdd" >
             </div>
             <div class="form-element">
-                <input type="password" placeholder="Password" id="password" name="pass" required>
+                <input type="password" placeholder="Password" id="password" name="pass" >
             </div>
             <div class="form-element">
                 <button id="add-btn" name="addbtn">Add</button>
@@ -79,6 +125,5 @@ if (!isset($_SESSION['adminID'])) {
                     get_student_Records();
                 ?>
             </table>
-    <script type="text/javascript" src="../scriptfiles/studentAdmin.js"></script>
 </body>
 </html>
