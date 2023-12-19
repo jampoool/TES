@@ -42,13 +42,13 @@ if (!isset($_SESSION['adminID'])) {
                 <button type="submit" class="import" name="import">Import</button>
             </div>
             <div class="form-element">
-                <input type="text" placeholder="Subject ID" id="firstname" name="s_ID" required>
+                <input type="text" placeholder="Subject ID" id="subjectID" name="s_ID">
             </div>
             <div class="form-element">
-                <input type="text" placeholder="Subject Code" id="lastname" name="code" required>
+                <input type="text" placeholder="Subject Code" id="subjectCode" name="code">
             </div>
             <div class="form-element">
-                <input type="text" placeholder="Subject Name" id="lastname" name="name" required>
+                <input type="text" placeholder="Subject Name" id="subjectName" name="name">
             </div>
             <div class="form-element">
                 <button id="add-btn" name="addbtn">Add</button>

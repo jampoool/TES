@@ -35,13 +35,13 @@
             <form method="POST">
             <h2>Admin</h2>
             <div class="form-element">
-                <input type="text" id="adminID" placeholder="Admin ID" name="adminID" required>
+                <input type="text" id="adminID" placeholder="Admin ID" name="adminID">
             </div>
             <div class="form-element">
-                <input type="text" id="username" placeholder="Username" name="username" required>
+                <input type="text" id="username" placeholder="Username" name="username">
             </div>
             <div class="form-element">
-                <input type="password" id="password" placeholder="Password" name="password" required>
+                <input type="password" id="password" placeholder="Password" name="password">
             </div>
             <div class="form-element">
                 <button id="add-btn" name="addbtn">Add</button>
