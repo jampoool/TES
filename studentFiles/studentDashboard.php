@@ -34,5 +34,6 @@ include "restriction.php";
                 </div>
         </div>
        
+    <script type="text/javascript" src="../scriptfiles/studentPanel.js"></script>
 </body>
 </html>

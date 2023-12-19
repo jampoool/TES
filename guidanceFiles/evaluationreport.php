@@ -21,24 +21,23 @@
         </select>
     </div>
     <div class="left">
-        <a href="first">BSIT 1-A -- 101-Programming</a>
+        <a href="first"></a>
         <br>
-        <a href="second">BSIT 1-B -- 102-Networking</a>
+        <a href="second"></a>
         <br>
-        <a href="third">BSIT 1-C -- 103-Designing</a>
+        <a href="third"></a>
     </div>
     <div class="right">
         <h3>Evaluation Report</h3>
         <div class="teacherinfo">
-            <label for="teacherinfo" class="text-left">Faculty: Darlene Maglangit</label>
+            <label for="teacherinfo" class="text-left">Faculty:</label>
             <br>
-            <label for="teacherinfo" class="text-left">Class: BSIT 1-A</label>
+            <label for="teacherinfo" class="text-left">Class:</label>
             <br>
-            <label for="teacherinfo" class="text-left">Total Students Evaluated: 0</label>
+            <label for="teacherinfo" class="text-left">Total Students Evaluated: </label>
+            
             <br>
-            <label for="teacherinfo" class="text-left">Academic Year: 2023-2024</label>
-            <br>
-            <label for="teacherinfo" class="text-left">Subject: 101 - Programming</label>
+            <label for="teacherinfo" class="text-left">Subject: </label>
         </div>
         <form method="">
             <fieldset>

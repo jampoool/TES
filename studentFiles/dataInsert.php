@@ -2,40 +2,53 @@
 include "../connect.php";
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Check if the submit button is set
-    if (isset($_POST['submit'])) {
-        // Ensure that the request method is POST
-        $studentID = $_SESSION['studentID'];
-        $classID = isset($_POST['classID']) ? $_POST['classID'] : null;
+// Validate and sanitize user inputs
+function sanitizeInput($input) {
+    return htmlspecialchars(trim($input));
+}
 
-        if (isset($_POST['rating']) && is_array($_POST['rating'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Ensure that the request method is POST
+    $studentID = $_SESSION['studentID'];
+    $classID = isset($_POST['classID']) ? $_POST['classID'] : null;
+
+    if (isset($_POST['addBtn'])) {
+        if ($classID !== null && isset($_POST['rating']) && is_array($_POST['rating'])) {
             $ratings = $_POST['rating'];
 
             foreach ($ratings as $questionID => $rating) {
-                // Insert the rating into the database using prepared statement
-                $insertQuery = $con->prepare("INSERT INTO tblevaluationform (studentID, questionID, rate, classID, academicID) VALUES (?, ?, ?, ?, '1')");
-                $insertQuery->bind_param("iiii", $studentID, $questionID, $rating, $classID);
+                // Check if the record already exists
+                $checkQuery = $con->prepare("SELECT COUNT(*) FROM tblevaluationform WHERE studentID = ? AND questionID = ? AND classID = ?");
+                $checkQuery->bind_param("iii", $studentID, $questionID, $classID);
+                $checkQuery->execute();
+                $checkQuery->bind_result($count);
+                $checkQuery->fetch();
+                $checkQuery->close();
 
-                if ($insertQuery->execute()) {
-                    // Query executed successfully
-                    echo "Rating inserted successfully!";
+                if ($count > 0) {
+                    // The record already exists, you can handle this situation (e.g., show an alert)
+                    echo "Error: Record already exists for studentID = $studentID, questionID = $questionID, classID = $classID";
                 } else {
-                    // Error in the query
-                    echo "Error: " . $con->error;
+                    // Insert the rating into the database using prepared statement
+                    $insertQuery = $con->prepare("INSERT INTO tblevaluationform (studentID, questionID, rate, classID, academicID) VALUES (?, ?, ?, ?, '1')");
+                    $insertQuery->bind_param("iiii", $studentID, $questionID, $rating, $classID);
+
+                    if ($insertQuery->execute()) {
+                        // Insert successful
+                        echo "Rating inserted successfully!";
+                    } else {
+                        // Error in the query
+                        echo "Error: " . $insertQuery->error;
+                    }
+
+                    $insertQuery->close(); // Close the prepared statement
                 }
-
-                $insertQuery->close(); // Close the prepared statement
             }
-
         } else {
-            echo 'Error: No ratings data received.';
+            echo 'Error: Invalid class ID or no ratings data received.';
         }
-    } else {
-        echo 'Error: Submit button not set.';
     }
 } else {
-    // If the request method is not POST, handle it accordingly
     echo 'Error: Invalid request method.';
 }
 ?>

@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -107,19 +108,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="evaluation-form">
         <h3>Evaluation Form</h3>
         <div class="teacherinfo">
-            <label for="faculty" class="text-left"><b>Faculty: </b><span id="faculty"></span></label><br>
-            <label for="class" class="text-left"><b>Class:</b> <span id="class"></span></label><br>
-            <label for="academicYear" class="text-left"><b>Academic Year:</b> <span id="academicYear"></span></label><br>
-            <label for="subject" class="text-left"><b>Subject:</b> <span id="subject"></span></label>
+            <label  class="text-left"><b>Faculty: </b><span id="faculty"></span></label><br>
+            <label class="text-left"><b>Class:</b> <span id="class"></span></label><br>
+            <label  class="text-left"><b>Academic Year:</b> <span id="academicYear"></span></label><br>
+            <label  class="text-left"><b>Subject:</b> <span id="subject"></span></label>
         </div>
         <form method="POST">
             <fieldset>
                 <legend>Rating Legend:</legend>
-                <label for="rating1">1 = Strongly Disagree</label>
-                <label for="rating2">2 = Disagree</label>
-                <label for="rating3">3 = Uncertain</label>
-                <label for="rating4">4 = Agree</label>
-                <label for="rating5">5 = Strongly Agree</label>
+                <label >1 = Strongly Disagree</label>
+                <label >2 = Disagree</label>
+                <label >3 = Uncertain</label>
+                <label >4 = Agree</label>
+                <label >5 = Strongly Agree</label>
             </fieldset>
 
             <table>
@@ -207,24 +208,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 // Event delegation for dynamically loaded .class-link elements
                 $('#class-list').on('click', '.class-link', function(e) {
-                    e.preventDefault();
-                    
-                    var teacherName = $(this).data('teacher-name');
-                    var classCode = $(this).data('class-code');
-                    var subjectName = $(this).data('subject-name');
-                    var classID = $(this).data('class-id'); // Use the correct data attribute name
+                        e.preventDefault();
 
-                    // Update teacher information
-                    $('#faculty').text(teacherName);
-                    $('#class').text(classCode);
-                    $('#subject').text(subjectName);
+                        var teacherName = $(this).data('teacher-name');
+                        var classCode = $(this).data('class-code');
+                        var subjectName = $(this).data('subject-name');
+                        var classID = $(this).data('class-id');
 
-                    // Log the classID to the console
-                    console.log('Clicked class link. Class ID:', classID);
+                        // Update teacher information
+                        $('#faculty').text(teacherName);
+                        $('#class').text(classCode);
+                        $('#subject').text(subjectName);
 
-                    $.ajax({
+                        // Log the classID to the console
+                        console.log('Clicked class link. Class ID:', classID);
+                        $.ajax({
                         type: 'POST',
-                        url: 'fillOutForm.php',
+                        url: 'dataInsert.php',
                         data: { classID: classID }, // Ensure this is the correct variable
                         success: function(response) {
                             console.log('Class ID sent successfully:', classID);

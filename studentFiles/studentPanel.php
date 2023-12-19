@@ -50,10 +50,11 @@
             </div>
         </div>
         <div class="output">
-            <iframe id="myframe" src="../studentFiles/studentDashboard.php"></iframe>
+
+        <iframe id="myframe" src = "../studentFiles/studentDashboard.php"></iframe>
         </div>
     </div>
+ 
     <script type="text/javascript" src="../scriptfiles/studentPanel.js"></script>
-    
 </body>
 </html>
