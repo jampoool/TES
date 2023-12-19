@@ -1,6 +1,7 @@
 <?php 
-
+include "../connect.php";
 include "restriction.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,15 +33,6 @@ include "restriction.php";
                     </div>
                 </div>
         </div>
-        <script>
-        // Display classID, academicID, and studentID
-        var classID = <?php echo json_encode($_SESSION['classIDs']); ?>;
-        var academicID = <?php echo json_encode($_SESSION['academicIDs']); ?>;
-        var studentID = <?php echo json_encode($_SESSION['studentID']); ?>;
-
-        console.log("Class ID:", classID);
-        console.log("Academic ID:", academicID);
-        console.log("Student ID:", studentID);
-    </script>
+       
 </body>
 </html>

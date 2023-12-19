@@ -26,7 +26,7 @@
             <li>
                 <a href="#">
                     <i class="fi fi-ss-users-alt"></i>
-                    <span onclick="fillOutFormFunction()">Fill Out Evaluation Form</span>
+                    <span onclick="fillOutFormFunction(academicStatus, currentClass, academicClass);">Fill Out Evaluation Form</span>
                 </a>
             </li>
             <li class="logout">
@@ -54,6 +54,6 @@
         </div>
     </div>
     <script type="text/javascript" src="../scriptfiles/studentPanel.js"></script>
-   
+    
 </body>
 </html>

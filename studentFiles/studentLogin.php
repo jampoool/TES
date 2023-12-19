@@ -6,7 +6,7 @@ if (isset($_POST['loginBtn'])) {
     $username = $_POST['emailAddress'];
     $password = $_POST['password'];
 
-    $sql = "SELECT s.studentID, sc.classID, r.id AS academicID
+    $sql = "SELECT s.studentID, sc.classID, r.academicID
             FROM tblstudent s
             INNER JOIN tblstudentclasses sc ON s.studentID = sc.studID
             LEFT JOIN tblrestriction r ON sc.classID = r.classID
@@ -20,26 +20,18 @@ if (isset($_POST['loginBtn'])) {
 
     $result = mysqli_stmt_get_result($stmt);
 
-    $classIDs = array(); // Array to store classIDs
-    $academicIDs = array(); // Array to store academicIDs
+    $row = mysqli_fetch_assoc($result);
 
-    while ($rows = mysqli_fetch_assoc($result)) {
-        $classIDs[] = $rows['classID'];
-        $academicIDs[] = $rows['academicID'];
-
-        // Move this inside the loop to get the correct student ID
-        $_SESSION['studentID'] = $rows['studentID'];
-    }
-
-    if (!empty($classIDs)) {
+    if ($row) {
         // Student authentication successful
-        $_SESSION['classIDs'] = $classIDs;
-        $_SESSION['academicIDs'] = $academicIDs;
+        $_SESSION['studentID'] = $row['studentID'];
+        $_SESSION['classID'] = $row['classID'];
+        $_SESSION['academicID'] = $row['academicID'];
 
         // Log session data
         echo "console.log('StudentID:', " . json_encode($_SESSION['studentID']) . ");\n";
-        echo "console.log('ClassIDs:', " . json_encode($_SESSION['classIDs']) . ");\n";
-        echo "console.log('AcademicIDs:', " . json_encode($_SESSION['academicIDs']) . ");\n";
+        echo "console.log('ClassID:', " . json_encode($_SESSION['classID']) . ");\n";
+        echo "console.log('AcademicID:', " . json_encode($_SESSION['academicID']) . ");\n";
 
         // Redirect
         header("Location: http://localhost/TES/studentFiles/studentPanel.php");
@@ -50,6 +42,7 @@ if (isset($_POST['loginBtn'])) {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

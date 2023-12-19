@@ -58,17 +58,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <?php
 
-            if (isset($_SESSION['classIDs'])) {
-                $classIDs = $_SESSION['classIDs'];
+            if (isset($_SESSION['classID'])) {
+                $classIDs = $_SESSION['classID'];
                 
-                // Convert array to comma-separated string
-                $classIDString = implode(',', $classIDs);
 
                 $sql = "SELECT DISTINCT t.teacher_ID, t.T_fname, t.T_lname
                         FROM tblclass c
                         JOIN tblteacher t ON t.teacher_ID = c.teachID
                         JOIN tblstudentclasses sc ON c.classID = sc.classID
-                        WHERE sc.classID IN ($classIDString)";
+                        WHERE sc.classID = $classIDs;";
 
                 $result = $con->query($sql);
 

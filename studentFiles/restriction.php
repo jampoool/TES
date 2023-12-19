@@ -22,7 +22,7 @@ try {
     }
 
     // Query to get the class associated with the academic ID
-    $academicID = $_SESSION['academicIDs'];
+    $academicID = $_SESSION['academicID'];
     $sqlAcademicClass = "SELECT classID FROM tblrestriction WHERE academicID = ?";
     $stmtAcademicClass = $con->prepare($sqlAcademicClass);
     $stmtAcademicClass->bind_param('i', $academicID);
@@ -31,7 +31,7 @@ try {
 
     if ($resultAcademicClass->num_rows > 0) {
         $rowAcademicClass = $resultAcademicClass->fetch_assoc();
-        $academicClass = $rowAcademicClass['classID'];
+        $academicClass = $academicID;
     } else {
         // Handle the case when no matching row is found
         $academicClass = null;
