@@ -6,10 +6,8 @@ if (isset($_POST['loginBtn'])) {
     $username = $_POST['emailAddress'];
     $password = $_POST['password'];
 
-    $sql = "SELECT s.studentID, sc.classID, r.academicID
+    $sql = "SELECT s.studentID, s.stud_emailAdd, s.password
             FROM tblstudent s
-            INNER JOIN tblstudentclasses sc ON s.studentID = sc.studID
-            LEFT JOIN tblrestriction r ON sc.classID = r.classID
             WHERE s.stud_emailAdd = ? AND s.password = ?";
     
     $stmt = mysqli_prepare($con, $sql);
@@ -25,13 +23,9 @@ if (isset($_POST['loginBtn'])) {
     if ($row) {
         // Student authentication successful
         $_SESSION['studentID'] = $row['studentID'];
-        $_SESSION['classID'] = $row['classID'];
-        $_SESSION['academicID'] = $row['academicID'];
 
         // Log session data
         echo "console.log('StudentID:', " . json_encode($_SESSION['studentID']) . ");\n";
-        echo "console.log('ClassID:', " . json_encode($_SESSION['classID']) . ");\n";
-        echo "console.log('AcademicID:', " . json_encode($_SESSION['academicID']) . ");\n";
 
         // Redirect
         header("Location: http://localhost/TES/studentFiles/studentPanel.php");
